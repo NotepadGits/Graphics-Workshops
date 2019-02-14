@@ -10,15 +10,16 @@ uniform float uTime;					//uniform variable modified in main code
 void main()
 {
 	
-
-    float intermediateX = sin((uTime)/1000);
-	float xPos = intermediateX*Position.x;
 	
-	float intermediateY = sin(uTime/1000);
+
+    float intermediateX = sin((uTime)/100);
+	float xPos = intermediateX*Position.x	;
+	
+		float intermediateY = cos(uTime/300);
 	float yPos = intermediateY*Position.y;
 
 	
-	gl_Position = vec4(xPos, Position.y, Position.z, 1.0);
+	gl_Position = vec4(xPos, yPos, Position.z, 1.0);
 	Colour = vColour; 					//pass the vertex colour unchanged to the fragment shader
 
 }

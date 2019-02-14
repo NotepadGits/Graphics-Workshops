@@ -30,6 +30,16 @@
   <ItemGroup>
     <ClCompile Include="Week4_Uniform.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Assets\Shaders\shader.frag" />
+    <None Include="..\..\Assets\Shaders\shader.vert" />
+    <None Include="..\..\Assets\Shaders\shaderColour.frag" />
+    <None Include="..\..\Assets\Shaders\shaderColour.vert" />
+    <None Include="..\..\Assets\Shaders\shader_time.frag" />
+    <None Include="..\..\Assets\Shaders\shader_time.vert" />
+    <None Include="..\..\Assets\Shaders\shader_vColour_Texture.frag" />
+    <None Include="..\..\Assets\Shaders\shader_vColour_Texture.vert" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{FC49E162-563D-4E4A-B6F1-5EB920162ED6}</ProjectGuid>

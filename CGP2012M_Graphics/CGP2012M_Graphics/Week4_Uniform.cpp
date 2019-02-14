@@ -7,6 +7,7 @@
 #include "GLerror.h"
 #include "SDL_Start.h"
 #include "Triangle.h"
+#include "Triangle_T.h"
 #include "Circle.h"
 #ifndef SHADERCLASS_H
 #define SHADERCLASS_H
@@ -66,7 +67,8 @@ int main(int argc, char *argv[]) {
 	//*****************************************************
 	//OpenGL specific data
 	//create triangle
-	Triangle tri;
+	//Triangle tri;
+	Triangle_T tri;
 
 	//create 10 circles
 	float randValue, randValue2;
