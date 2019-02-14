@@ -10,7 +10,7 @@
 #include "Circle.h"
 #ifndef SHADERCLASS_H
 #define SHADERCLASS_H
-
+		//memes
 // // GLEW - OpenGL Extension Wrangler - http://glew.sourceforge.net/
 // // NOTE: include before SDL.h
 #ifndef GLEW_H
