@@ -75,7 +75,7 @@ int main(int argc, char *argv[]) {
 	srand(time(0));
 	std::vector<Circle> circles;
 
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 2; i++)
 	{
 		randValue = (float)rand() / RAND_MAX;
 		randValue2 = (float)rand() / RAND_MAX;
@@ -113,7 +113,7 @@ int main(int argc, char *argv[]) {
 	//OpenGL buffers
 	tri.setBuffers();
 	//set buffers for the circles
-	for (int q = 0; q < 5; q++)
+	for (int q = 0; q < 2; q++)
 	{
 		circles[q].setBuffers();
 	}
@@ -137,7 +137,7 @@ int main(int argc, char *argv[]) {
 		//****************************
 		// OpenGL calls.
 		
-		glClearColor(1.0f, 1.0f, 1.0f, 1);
+		glClearColor(1.0f, 0.8f, 1.0f, 1);
 		glClear(GL_COLOR_BUFFER_BIT); 
 
 		errorLabel = 4;
@@ -165,7 +165,7 @@ int main(int argc, char *argv[]) {
 		//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 		//render the circles
-		for (int q = 0; q < 5; q++)
+		for (int q = 0; q < 2; q++)
 		{
 			glBindVertexArray(circles[q].VAO);
 			circles[q].render();
