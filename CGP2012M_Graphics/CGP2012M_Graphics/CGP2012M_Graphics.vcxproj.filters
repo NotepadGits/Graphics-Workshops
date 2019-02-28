@@ -13,59 +13,41 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\base-headers">
+      <UniqueIdentifier>{de15f3b2-151b-40ad-bdd2-a001db2c10fc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Triangle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ShaderClass.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Circle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDL_Start.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GLerror.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Triangle_T.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TextureClass.h">
+    <ClInclude Include="main.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GLerror.h">
+      <Filter>Header Files\base-headers</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL_Start.h">
+      <Filter>Header Files\base-headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderClass.h">
+      <Filter>Header Files\base-headers</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureClass.h">
+      <Filter>Header Files\base-headers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Week4_Uniform.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\Assets\Shaders\shader.vert">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="..\..\Assets\Shaders\shader_time.frag">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="..\..\Assets\Shaders\shader_time.vert">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="..\..\Assets\Shaders\shader_vColour_Texture.frag">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\..\Assets\Shaders\shader_vColour_Texture.vert">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\..\Assets\Shaders\shaderColour.frag">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\..\Assets\Shaders\shaderColour.vert">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\..\Assets\Shaders\shader.frag">
-      <Filter>Resource Files</Filter>
-    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
