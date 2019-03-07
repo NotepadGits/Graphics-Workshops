@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 		tri.setCurrentTime(currentTime);
 
 		//Actually draw the triangle on the screen
-		//tri.render();
+		tri.render();
 
 		sq.setCurrentTime(currentTime);
 		sq.render();
