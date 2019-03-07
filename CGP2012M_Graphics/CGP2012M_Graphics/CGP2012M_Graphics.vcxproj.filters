@@ -36,6 +36,9 @@
     <ClInclude Include="TextureClass.h">
       <Filter>Header Files\base-headers</Filter>
     </ClInclude>
+    <ClInclude Include="Square.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\Assets\Shaders\shader_time.frag">

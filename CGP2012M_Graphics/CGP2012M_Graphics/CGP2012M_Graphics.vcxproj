@@ -23,6 +23,7 @@
     <ClInclude Include="main.h" />
     <ClInclude Include="SDL_Start.h" />
     <ClInclude Include="ShaderClass.h" />
+    <ClInclude Include="Square.h" />
     <ClInclude Include="TextureClass.h" />
     <ClInclude Include="Triangle_T.h" />
   </ItemGroup>

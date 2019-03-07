@@ -11,6 +11,9 @@ int main(int argc, char *argv[])
 	//Create our triangle
 	Triangle_T tri;
 
+	//create a square
+	Square sq;
+
 	//We're gonna just count up the time every frame
 	//so lets make a variable for that
 	GLfloat currentTime;
@@ -28,7 +31,10 @@ int main(int argc, char *argv[])
 		tri.setCurrentTime(currentTime);
 
 		//Actually draw the triangle on the screen
-		tri.render();
+		//tri.render();
+
+		sq.setCurrentTime(currentTime);
+		sq.render();
 
 		//RenderPresent() -- swap/flip buffers
 		SDL_GL_SwapWindow(sdl.win);
