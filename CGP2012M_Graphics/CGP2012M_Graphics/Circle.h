@@ -2,13 +2,12 @@
 #include <GL/glew.h>
 #include <array>
 #include <cmath>
-#include "ShaderClass.h"
-#include "TextureClass.h"
 
 class Circle
 {
 public:
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 	//shader setup
 	Shader vSh1, fSh1;
@@ -21,6 +20,8 @@ public:
 	Texture tex;
 
 
+=======
+>>>>>>> parent of 379d934... Started addition of Circle
 	//set up vertex buffer object
 =======
 	//Vertex Buffer object Init
@@ -36,10 +37,14 @@ public:
 	//Vertex array
 	GLfloat vertices[180];
 <<<<<<< HEAD
+<<<<<<< HEAD
 	//set up index array for stiching
 =======
 	//Index array stiching
 >>>>>>> 5dea96cd2757acbd5581dc1c65d636e574079fee
+=======
+	//set up index array
+>>>>>>> parent of 379d934... Started addition of Circle
 	GLuint indices[87] = {
 		0, 1, 2,
 		0, 2, 3,
@@ -73,30 +78,10 @@ public:
 
 <<<<<<< HEAD
 
-	Circle(float radius)
+	Circle(float radius, float offsetX, float offsetY)
 	{
-
-		//generate verticies
-		genVerts(radius);
-
-		//create the shader program
-		createShaderProgram();
-
-		//Load textures for rendering
-		tex.load("..//..//Assets//Textures//carbon-fibre-seamless-texture.jpg");
-
-		//mount buffers with vertex data
-		setBuffers();
-
-
-
-
-	}
-
-	void genVerts(float radius)
-	{
-
 		//origin of circle at 0,0,0
+<<<<<<< HEAD
 =======
 	Circle(float radius)
 	{
@@ -105,6 +90,10 @@ public:
 >>>>>>> 5dea96cd2757acbd5581dc1c65d636e574079fee
 		vertices[0] = 0.0f;
 		vertices[1] = 0.0f;
+=======
+		vertices[0] = 0.0f + offsetX;
+		vertices[1] = 0.0f + offsetY;
+>>>>>>> parent of 379d934... Started addition of Circle
 		vertices[2] = 0.0f;
 		//colour of curcle
 		vertices[3] = 0.0f;
@@ -116,51 +105,29 @@ public:
 		//set remaining vertices based on radius
 		for (int i = 6; i < 180; i += 6)
 		{
-			vertices[i] = (radius * cos(angle));
-			vertices[i + 1] = (radius * sin(angle));
+			vertices[i] = (radius * cos(angle)) + offsetX;
+			vertices[i + 1] = (radius * sin(angle)) + offsetY;
 			vertices[i + 2] = 0.0f;
 			//colour information
 			vertices[i + 3] = 0.8f;
 			vertices[i + 4] = 0.0f;
 			vertices[i + 5] = 0.4f;
-
+	
 			//increase angle value in radians
 			//(2*pi)/number of verts on circumference
-			angle += (2 * 3.141) / 28.0f;
+			angle += (2*3.141)/28.0f;
 
 		}
+<<<<<<< HEAD
 
 
 <<<<<<< HEAD
 =======
 
 >>>>>>> 5dea96cd2757acbd5581dc1c65d636e574079fee
+=======
+>>>>>>> parent of 379d934... Started addition of Circle
 	}
-	void createShaderProgram()
-	{
-		//mount vertex and fragment shaders
-		vSh1.shaderFileName("..//..//Assets//Shaders//shader_vColour_Texture.vert");
-		fSh1.shaderFileName("..//..//Assets//Shaders//shader_vColour_Texture.frag");
-
-		//replace above after adding matricies
-		///("..//..//Assets//Shaders//shader_vColour_Projection.vert");
-		///("..//..//Assets//Shaders//shader_vColour_Projection.frag");
-
-		//give the shaders an ID for compilation
-		vSh1.getShader(1);
-		fSh1.getShader(2);
-
-		//compile the shaders into a program
-		shader = glCreateProgram();
-		glAttachShader(shader, vSh1.shaderID);
-		glAttachShader(shader, fSh1.shaderID);
-		glLinkProgram(shader);
-
-		//clear reference IDs
-		glDeleteShader(vSh1.shaderID);
-		glDeleteShader(fSh1.shaderID);
-
-	};
 
 	void setBuffers()
 	{
