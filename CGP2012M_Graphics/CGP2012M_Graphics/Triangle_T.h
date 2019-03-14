@@ -129,8 +129,17 @@ public:
 		//Unbind the VAO
 		glBindVertexArray(0);
 
+		
+
 		//texture buffers
 		tex.setBuffers();
+
+		//if framenum % 3 == 0
+		//tex.setBuffers()
+		//else if framenum % 3 == 0
+		//tex2.setBuffers()
+		//..
+
 	}
 
 
