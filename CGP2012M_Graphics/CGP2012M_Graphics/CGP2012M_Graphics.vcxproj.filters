@@ -41,6 +41,7 @@
     </ClInclude>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <ClInclude Include="Circle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -55,6 +56,8 @@
 >>>>>>> 5dea96cd2757acbd5581dc1c65d636e574079fee
 =======
 >>>>>>> parent of 379d934... Started addition of Circle
+=======
+>>>>>>> parent of 5dea96c... Added start of Circle.h
 =======
 >>>>>>> parent of 5dea96c... Added start of Circle.h
   </ItemGroup>

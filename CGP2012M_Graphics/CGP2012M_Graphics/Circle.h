@@ -10,6 +10,7 @@ public:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	//shader setup
 	Shader vSh1, fSh1;
 	GLuint shader;
@@ -30,6 +31,9 @@ public:
 =======
 	//set up vertex buffer object
 >>>>>>> parent of 5dea96c... Added start of Circle.h
+=======
+	//set up vertex buffer object
+>>>>>>> parent of 5dea96c... Added start of Circle.h
 	GLuint VBO;
 	//set up vertex array object
 	GLuint VAO;
@@ -41,6 +45,7 @@ public:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	//set up index array for stiching
 =======
 	//Index array stiching
@@ -48,6 +53,9 @@ public:
 =======
 	//set up index array
 >>>>>>> parent of 379d934... Started addition of Circle
+=======
+	//set up index array
+>>>>>>> parent of 5dea96c... Added start of Circle.h
 =======
 	//set up index array
 >>>>>>> parent of 5dea96c... Added start of Circle.h
@@ -84,6 +92,7 @@ public:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	Circle(float radius, float offsetX, float offsetY)
 	{
@@ -103,11 +112,17 @@ public:
 >>>>>>> parent of 379d934... Started addition of Circle
 =======
 
+=======
+
+>>>>>>> parent of 5dea96c... Added start of Circle.h
 	Circle(float radius, float offsetX, float offsetY)
 	{
 		//origin of circle at 0,0,0
 		vertices[0] = 0.0f + offsetX;
 		vertices[1] = 0.0f + offsetY;
+<<<<<<< HEAD
+>>>>>>> parent of 5dea96c... Added start of Circle.h
+=======
 >>>>>>> parent of 5dea96c... Added start of Circle.h
 		vertices[2] = 0.0f;
 		//colour of origin vertex
@@ -135,6 +150,7 @@ public:
 		}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 <<<<<<< HEAD
@@ -143,6 +159,8 @@ public:
 >>>>>>> 5dea96cd2757acbd5581dc1c65d636e574079fee
 =======
 >>>>>>> parent of 379d934... Started addition of Circle
+=======
+>>>>>>> parent of 5dea96c... Added start of Circle.h
 =======
 >>>>>>> parent of 5dea96c... Added start of Circle.h
 	}
