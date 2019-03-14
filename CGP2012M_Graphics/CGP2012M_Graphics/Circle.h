@@ -9,6 +9,7 @@ public:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	//shader setup
 	Shader vSh1, fSh1;
 	GLuint shader;
@@ -26,16 +27,18 @@ public:
 =======
 	//Vertex Buffer object Init
 >>>>>>> 5dea96cd2757acbd5581dc1c65d636e574079fee
+=======
+	//set up vertex buffer object
+>>>>>>> parent of 5dea96c... Added start of Circle.h
 	GLuint VBO;
-
-	//Vertex array object
+	//set up vertex array object
 	GLuint VAO;
+	//set up index buffer object
+	GLuint EBO;
 
-	//Index buffer object
-	GLuint IBO;
-
-	//Vertex array
+	//set up vertex array
 	GLfloat vertices[180];
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	//set up index array for stiching
@@ -45,6 +48,9 @@ public:
 =======
 	//set up index array
 >>>>>>> parent of 379d934... Started addition of Circle
+=======
+	//set up index array
+>>>>>>> parent of 5dea96c... Added start of Circle.h
 	GLuint indices[87] = {
 		0, 1, 2,
 		0, 2, 3,
@@ -77,6 +83,7 @@ public:
 	};
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	Circle(float radius, float offsetX, float offsetY)
 	{
@@ -94,8 +101,16 @@ public:
 		vertices[0] = 0.0f + offsetX;
 		vertices[1] = 0.0f + offsetY;
 >>>>>>> parent of 379d934... Started addition of Circle
+=======
+
+	Circle(float radius, float offsetX, float offsetY)
+	{
+		//origin of circle at 0,0,0
+		vertices[0] = 0.0f + offsetX;
+		vertices[1] = 0.0f + offsetY;
+>>>>>>> parent of 5dea96c... Added start of Circle.h
 		vertices[2] = 0.0f;
-		//colour of curcle
+		//colour of origin vertex
 		vertices[3] = 0.0f;
 		vertices[4] = 0.0f;
 		vertices[5] = 0.1f;
@@ -119,6 +134,7 @@ public:
 
 		}
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 <<<<<<< HEAD
@@ -127,26 +143,28 @@ public:
 >>>>>>> 5dea96cd2757acbd5581dc1c65d636e574079fee
 =======
 >>>>>>> parent of 379d934... Started addition of Circle
+=======
+>>>>>>> parent of 5dea96c... Added start of Circle.h
 	}
 
 	void setBuffers()
 	{
 		//
-//OpenGL buffers
-//set up 1 for the triangle
+		//OpenGL buffers
+		//set up 1 for the triangle
 		glGenBuffers(1, &VBO);
 		// Initialization code using Vertex Array Object (VAO) (done once (unless the object frequently changes))
 		glGenVertexArrays(1, &VAO);
 		//initialise the index buffer
-		glGenBuffers(1, &IBO);
-
+		glGenBuffers(1, &EBO);
+		
 		// Bind Vertex Array Object
 		glBindVertexArray(VAO);
 		// Copy our vertices array in a buffer for OpenGL to use
 		glBindBuffer(GL_ARRAY_BUFFER, VBO);
 		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 		//set up the EBO
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 		// Then set our vertex attributes pointers
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)0);
@@ -156,7 +174,14 @@ public:
 		glEnableVertexAttribArray(1);
 		//Unbind the VAO
 		glBindVertexArray(0);
+	}
 
-	};
-
+	void render()
+	{
+		//draw the circle 
+		glBindVertexArray(VAO);
+		glPointSize(5.0f);
+		glDrawElements(GL_TRIANGLES, 87, GL_UNSIGNED_INT, 0);
+		glBindVertexArray(0);
+	}
 };
