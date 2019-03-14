@@ -6,11 +6,6 @@
 class Circle
 {
 public:
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 	//shader setup
 	Shader vSh1, fSh1;
 	GLuint shader;
@@ -22,18 +17,7 @@ public:
 	Texture tex;
 
 
-=======
->>>>>>> parent of 379d934... Started addition of Circle
 	//set up vertex buffer object
-=======
-	//Vertex Buffer object Init
->>>>>>> 5dea96cd2757acbd5581dc1c65d636e574079fee
-=======
-	//set up vertex buffer object
->>>>>>> parent of 5dea96c... Added start of Circle.h
-=======
-	//set up vertex buffer object
->>>>>>> parent of 5dea96c... Added start of Circle.h
 	GLuint VBO;
 	//set up vertex array object
 	GLuint VAO;
@@ -42,23 +26,10 @@ public:
 
 	//set up vertex array
 	GLfloat vertices[180];
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 	//set up index array for stiching
-=======
+
 	//Index array stiching
->>>>>>> 5dea96cd2757acbd5581dc1c65d636e574079fee
-=======
-	//set up index array
->>>>>>> parent of 379d934... Started addition of Circle
-=======
-	//set up index array
->>>>>>> parent of 5dea96c... Added start of Circle.h
-=======
-	//set up index array
->>>>>>> parent of 5dea96c... Added start of Circle.h
 	GLuint indices[87] = {
 		0, 1, 2,
 		0, 2, 3,
@@ -90,40 +61,12 @@ public:
 		0, 28, 29
 	};
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-	Circle(float radius, float offsetX, float offsetY)
-	{
-		//origin of circle at 0,0,0
-<<<<<<< HEAD
-=======
 	Circle(float radius)
 	{
-
-		//Origin of cicle
->>>>>>> 5dea96cd2757acbd5581dc1c65d636e574079fee
+		//origin of circle at 0,0,0
 		vertices[0] = 0.0f;
 		vertices[1] = 0.0f;
-=======
-		vertices[0] = 0.0f + offsetX;
-		vertices[1] = 0.0f + offsetY;
->>>>>>> parent of 379d934... Started addition of Circle
-=======
-
-=======
-
->>>>>>> parent of 5dea96c... Added start of Circle.h
-	Circle(float radius, float offsetX, float offsetY)
-	{
-		//origin of circle at 0,0,0
-		vertices[0] = 0.0f + offsetX;
-		vertices[1] = 0.0f + offsetY;
-<<<<<<< HEAD
->>>>>>> parent of 5dea96c... Added start of Circle.h
-=======
->>>>>>> parent of 5dea96c... Added start of Circle.h
 		vertices[2] = 0.0f;
 		//colour of origin vertex
 		vertices[3] = 0.0f;
@@ -135,8 +78,8 @@ public:
 		//set remaining vertices based on radius
 		for (int i = 6; i < 180; i += 6)
 		{
-			vertices[i] = (radius * cos(angle)) + offsetX;
-			vertices[i + 1] = (radius * sin(angle)) + offsetY;
+			vertices[i] = (radius * cos(angle));
+			vertices[i + 1] = (radius * sin(angle));
 			vertices[i + 2] = 0.0f;
 			//colour information
 			vertices[i + 3] = 0.8f;
@@ -148,21 +91,6 @@ public:
 			angle += (2*3.141)/28.0f;
 
 		}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 5dea96cd2757acbd5581dc1c65d636e574079fee
-=======
->>>>>>> parent of 379d934... Started addition of Circle
-=======
->>>>>>> parent of 5dea96c... Added start of Circle.h
-=======
->>>>>>> parent of 5dea96c... Added start of Circle.h
 	}
 
 	void setBuffers()
