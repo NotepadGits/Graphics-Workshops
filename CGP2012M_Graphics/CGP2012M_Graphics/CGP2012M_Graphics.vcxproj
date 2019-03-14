@@ -20,7 +20,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Circle.h" />
+<<<<<<< HEAD
     <ClInclude Include="Events.h" />
+=======
+>>>>>>> 5dea96cd2757acbd5581dc1c65d636e574079fee
     <ClInclude Include="GLerror.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="SDL_Start.h" />

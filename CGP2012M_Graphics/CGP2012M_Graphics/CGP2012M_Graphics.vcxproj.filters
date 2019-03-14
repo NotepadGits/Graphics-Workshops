@@ -45,12 +45,15 @@
     <ClInclude Include="Circle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="Events.h">
       <Filter>Header Files\base-headers</Filter>
     </ClInclude>
     <ClInclude Include="TODO.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
+=======
+>>>>>>> 5dea96cd2757acbd5581dc1c65d636e574079fee
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\Assets\Shaders\shader_vColour_Texture.frag">
