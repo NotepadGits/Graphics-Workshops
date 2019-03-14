@@ -5,14 +5,6 @@
 #include "ShaderClass.h"
 #include "TextureClass.h"
 
-// // - OpenGL Mathematics - https://glm.g-truc.net/
-#define GLM_FORCE_RADIANS // force glm to use radians
-// // NOTE: must do before including GLM headers
-// // NOTE: GLSL uses radians, so will do the same, for consistency
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
-
 class Square
 {
 public:
@@ -27,17 +19,18 @@ public:
 	//verticies for the square/rect
 	GLfloat vertices[32] = {
 		//vertex			colour			Texture coord
-		0.4f, 0.4f, 0.0f,		 0.0f, 1.0f, 0.0f,   1.0f, 1.0f,
-		0.1f, -0.4f, 0.0f,		 0.0f, 1.0f, 0.0f,	 1.0f, 0.0f,
-		-0.4f, -0.4f, 0.0f,		0.0f, 1.0f, 0.0f,   0.0f, 0.0f,
-		-0.4f, 0.1f, 0.0f,		 0.0f, 1.0f, 0.0f,   0.0f, 1.0f
+		0.1f, 0.1f, 0.0f,		 0.0f, 1.0f, 0.0f,   1.0f, 1.0f,
+		0.1f, -0.1f, 0.0f,		 0.0f, 1.0f, 0.0f,	 1.0f, 0.0f,
+		-0.1f, -0.1f, 0.0f,		0.0f, 1.0f, 0.0f,   0.0f, 0.0f,
+		-0.1f, 0.1f, 0.0f,		 0.0f, 1.0f, 0.0f,   0.0f, 1.0f
 	};
-
 	//define indices for the square
 	GLuint indices[6] = {
 		0, 1, 3,
 		1, 2, 3
-	}; 
+	};
+
+
 
 	// Vertext bufferes object
 	GLuint VBO;
@@ -45,10 +38,6 @@ public:
 	GLuint VAO;
 	//index buffer object
 	GLuint IBO;
-
-	//The model matrix for this square -- set everything to zero
-	glm::mat4 model = glm::mat4(1.0f);
-
 
 	/*
 	*@brief  New instance of a textured rect/square
@@ -64,25 +53,6 @@ public:
 		//mount buffers with vertex data
 		setBuffers();
 	};
-
-	void translate(float x, float y)
-	{
-		//our position is say, (0, 0, 0)
-		//just add (x, y, 0) onto it
-		model = glm::translate(model, glm::vec3(x, y, 0));
-	}
-
-	void scale(float scale)
-	{
-		//This will allow us to scale stuff up/down
-		model = glm::scale(model, glm::vec3(scale));
-	}
-
-	void rotate(float degrees)
-	{
-		//rotate around all axes using this amount of degrees
-		model = glm::rotate(model, glm::radians(degrees), glm::vec3(0, 0, 1));
-	}
 
 	void createShaderProgram()
 	{
@@ -118,8 +88,7 @@ public:
 		glProgramUniform1f(shader, timeLocation, time);
 	}
 
-	void setBuffers() 
-	{
+	void setBuffers() {
 		//triangle buffer
 		glGenBuffers(1, &VBO);
 		// Initialization code using Vertex Array Object (VAO) (done once (unless the object frequently changes))
