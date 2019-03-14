@@ -13,24 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Base Headers">
+      <UniqueIdentifier>{0741528e-1f88-4c9a-a8e5-0d20e10fbc20}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ShaderClass.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDL_Start.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GLerror.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Triangle_T.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TextureClass.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Textures.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Square.h">
@@ -39,10 +27,84 @@
     <ClInclude Include="main.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GLerror.h">
+      <Filter>Header Files\Base Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL_Start.h">
+      <Filter>Header Files\Base Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderClass.h">
+      <Filter>Header Files\Base Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureClass.h">
+      <Filter>Header Files\Base Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Textures.h">
+      <Filter>Header Files\Base Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="TODO.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Events.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Circle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Week7_OrthoProjection_SimpleLight.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Assets\Shaders\shader_Projection_basicLight.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\shader_Projection_basicLight.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\shader_Text.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\shader_Text.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\shader_time.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\shader_time.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\shader_vColour_Projection.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\shader_vColour_Projection.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\shader_vColour_Texture.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\shader_vColour_Texture.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\shader_vColour_Transform.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\shader_vColour_Transform.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\shaderColour.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\shaderColour.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\shader.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\shader.vert">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

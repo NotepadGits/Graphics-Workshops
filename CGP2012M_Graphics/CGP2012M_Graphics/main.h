@@ -31,3 +31,6 @@
 //Include the textured triangle class
 #include "Triangle_T.h"
 #include "Square.h"
+#include "Circle.h"
+
+#include "Events.h"

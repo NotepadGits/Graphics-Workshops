@@ -10,12 +10,21 @@ int main(int argc, char *argv[])
 
 	glewExperimental = GL_TRUE;
 	glewInit();
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+	SDL_Event event;
+	Events ev(event);
 
 	//Create our triangle
 	Triangle_T tri;
 
 	//create a square
 	Square sq;
+
+	//create test Circle
+	Circle cr(0.2f);
+
 
 	//We're gonna just count up the time every frame
 	//so lets make a variable for that
@@ -31,13 +40,15 @@ int main(int argc, char *argv[])
 		currentTime = SDL_GetTicks();
 
 		//Set the current time (in the shader)
-		//tri.setCurrentTime(currentTime);
+		tri.setCurrentTime(currentTime);
 
 		//Actually draw the triangle on the screen
-		//tri.render();
+		tri.render();
 
 		//sq.setCurrentTime(currentTime);
 		sq.render();
+
+		cr.render();
 
 		//RenderPresent() -- swap/flip buffers
 		SDL_GL_SwapWindow(sdl.win);
@@ -47,14 +58,15 @@ int main(int argc, char *argv[])
 
 
 		//The event thing
-		SDL_Event event;
+		//SDL_Event event;
 
-		if (SDL_PollEvent(&event))
-		{
-			//If they close the window break the loop
-			if (event.type == SDL_QUIT)
-				break;
-		}
+		//if (SDL_PollEvent(&event))
+		//{
+		//	//If they close the window break the loop
+		//	if (event.type == SDL_QUIT)
+		//		break;
+		//}
+		ev.HandleEvents();
 	}
 
 	//Clean up
