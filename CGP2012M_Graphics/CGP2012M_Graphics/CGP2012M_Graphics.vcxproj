@@ -19,18 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Circle.h" />
-    <ClInclude Include="CircleTexture.h" />
     <ClInclude Include="GLerror.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="SDL_Start.h" />
-    <ClInclude Include="SDL_ttf.h" />
     <ClInclude Include="ShaderClass.h" />
     <ClInclude Include="Square.h" />
     <ClInclude Include="TextureClass.h" />
     <ClInclude Include="Textures.h" />
-    <ClInclude Include="Triangle.h" />
-    <ClInclude Include="Triangle_AnyT.h" />
     <ClInclude Include="Triangle_T.h" />
   </ItemGroup>
   <ItemGroup>
