@@ -146,11 +146,11 @@ int main(int argc, char *argv[]) {
 		//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 		//render the circles
-		for (int q = 0; q < 5; q++)
+		/*for (int q = 0; q < 5; q++)
 		{
 			glBindVertexArray(circles[q].VAO);
 			circles[q].render();
-		}
+		}*/
 
 		
 

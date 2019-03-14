@@ -13,64 +13,50 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\base-headers">
-      <UniqueIdentifier>{de15f3b2-151b-40ad-bdd2-a001db2c10fc}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Triangle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Circle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL_Start.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GLerror.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Triangle_T.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Textures.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangle_AnyT.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleTexture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Square.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL_ttf.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="main.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GLerror.h">
-      <Filter>Header Files\base-headers</Filter>
-    </ClInclude>
-    <ClInclude Include="SDL_Start.h">
-      <Filter>Header Files\base-headers</Filter>
-    </ClInclude>
-    <ClInclude Include="ShaderClass.h">
-      <Filter>Header Files\base-headers</Filter>
-    </ClInclude>
-    <ClInclude Include="TextureClass.h">
-      <Filter>Header Files\base-headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Square.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <ClInclude Include="Circle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="Events.h">
-      <Filter>Header Files\base-headers</Filter>
-    </ClInclude>
-    <ClInclude Include="TODO.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
-=======
->>>>>>> 5dea96cd2757acbd5581dc1c65d636e574079fee
-=======
->>>>>>> parent of 379d934... Started addition of Circle
-=======
->>>>>>> parent of 5dea96c... Added start of Circle.h
-=======
->>>>>>> parent of 5dea96c... Added start of Circle.h
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\Assets\Shaders\shader_time.frag">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\..\Assets\Shaders\shader_time.vert">
-      <Filter>Resource Files</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="Week7_OrthoProjection_SimpleLight.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

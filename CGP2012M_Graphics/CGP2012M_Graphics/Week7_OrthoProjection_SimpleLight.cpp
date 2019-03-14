@@ -2,12 +2,15 @@
 
 
 
-int main(int argc, char *argv[]) 
+int main(int argc, char *argv[])
 {
 	//Initialise SDL, make a window, blah
 	SDL_Start sdl;
 	sdl.Init();
-	
+
+	glewExperimental = GL_TRUE;
+	glewInit();
+
 	//Create our triangle
 	Triangle_T tri;
 
@@ -19,21 +22,21 @@ int main(int argc, char *argv[])
 	GLfloat currentTime;
 
 	while (true)
-	{		
+	{
 		//Clear the screen with a single colour
 		glClearColor(1.0f, 0.8f, 1.0f, 1);
-		glClear(GL_COLOR_BUFFER_BIT); 
+		glClear(GL_COLOR_BUFFER_BIT);
 
 		//Set the current time to the ticks in SDL
 		currentTime = SDL_GetTicks();
 
 		//Set the current time (in the shader)
-		tri.setCurrentTime(currentTime);
+		//tri.setCurrentTime(currentTime);
 
 		//Actually draw the triangle on the screen
 		//tri.render();
 
-		sq.setCurrentTime(currentTime);
+		//sq.setCurrentTime(currentTime);
 		sq.render();
 
 		//RenderPresent() -- swap/flip buffers

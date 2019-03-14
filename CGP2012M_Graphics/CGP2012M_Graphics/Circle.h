@@ -6,16 +6,6 @@
 class Circle
 {
 public:
-	//shader setup
-	Shader vSh1, fSh1;
-	GLuint shader;
-
-	//position
-	float x, y;
-
-	//texture to apply
-	Texture tex;
-
 
 	//set up vertex buffer object
 	GLuint VBO;
@@ -26,10 +16,7 @@ public:
 
 	//set up vertex array
 	GLfloat vertices[180];
-
-	//set up index array for stiching
-
-	//Index array stiching
+	//set up index array
 	GLuint indices[87] = {
 		0, 1, 2,
 		0, 2, 3,
@@ -62,11 +49,11 @@ public:
 	};
 
 
-	Circle(float radius)
+	Circle(float radius, float offsetX, float offsetY)
 	{
 		//origin of circle at 0,0,0
-		vertices[0] = 0.0f;
-		vertices[1] = 0.0f;
+		vertices[0] = 0.0f + offsetX;
+		vertices[1] = 0.0f + offsetY;
 		vertices[2] = 0.0f;
 		//colour of origin vertex
 		vertices[3] = 0.0f;
@@ -78,8 +65,8 @@ public:
 		//set remaining vertices based on radius
 		for (int i = 6; i < 180; i += 6)
 		{
-			vertices[i] = (radius * cos(angle));
-			vertices[i + 1] = (radius * sin(angle));
+			vertices[i] = (radius * cos(angle)) + offsetX;
+			vertices[i + 1] = (radius * sin(angle)) + offsetY;
 			vertices[i + 2] = 0.0f;
 			//colour information
 			vertices[i + 3] = 0.8f;

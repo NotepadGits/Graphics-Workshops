@@ -16,6 +16,11 @@ public:
 	GLuint EBO;
 	//set up texture
 	Texture tex;
+	//shaders
+	Shader vSh, fSh;
+	GLuint shaderProgram;
+	//position
+	float x, y;
 
 	//set up vertex array
 	GLfloat vertices[240];
@@ -79,19 +84,32 @@ public:
 			vertices[i + 4] = 0.0f;
 			vertices[i + 5] = 0.4f;
 			//texture coordinate information
-			vertices[i + 6] = ((radius * cos(angle) )*0.5f)+0.5f;
-			vertices[i + 7] = ((radius * sin(angle) )*0.5f)+0.5f;
+			vertices[i + 6] = ((radius * cos(angle) )*2.5f)+0.5f;
+			vertices[i + 7] = ((radius * sin(angle) )*2.5f)+0.5f;
 		
-	
-	
 			//increase angle value in radians
 			//(2*pi)/number of verts on circumference
 			angle += (2*3.141)/28.0f;
 
 		}
 
+		//shaders
+		vSh.shaderFileName("..//..//Assets//Shaders//shader_vColour_Projection.vert");
+		fSh.shaderFileName("..//..//Assets//Shaders//shader_vColour_Projection.frag");
+
+		vSh.getShader(1);
+		fSh.getShader(2);
+
+		shaderProgram = glCreateProgram();
+		glAttachShader(shaderProgram, vSh.shaderID);
+		glAttachShader(shaderProgram, fSh.shaderID);
+		glLinkProgram(shaderProgram);
+
+		glDeleteShader(vSh.shaderID);
+		glDeleteShader(fSh.shaderID);
+
 		//load the texture file
-		tex.load("..//..//Assets//Textures//circlePattern_alpha.png");
+		tex.load("..//..//Assets//Textures//bubble.png");
 	}
 
 	void setBuffers()

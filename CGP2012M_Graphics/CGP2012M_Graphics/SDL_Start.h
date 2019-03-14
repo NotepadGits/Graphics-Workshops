@@ -29,30 +29,6 @@ public:
 		// Create an OpenGL context associated with the window.
 		glcontext = SDL_GL_CreateContext(win);
 
-
-
-		//error class
-		GLerror glerr;
-		int errorLabel;
-
-		//GLEW initialise
-		glewExperimental = GL_TRUE;
-		GLenum err = glewInit();
-
-		//register debug callback
-		if (glDebugMessageCallback)
-		{
-
-			std::cout << "Registering OpenGL Debug callback function" << std::endl;
-			glDebugMessageCallback(glerr.openglCallbackFunction, &errorLabel);
-			glDebugMessageControl(GL_DONT_CARE,
-				GL_DONT_CARE,
-				GL_DONT_CARE,
-				0,
-				NULL,
-				true);
-		}
-
 		return glcontext;
 	}
 };
