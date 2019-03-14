@@ -10,11 +10,12 @@ uniform float uTime;					//uniform variable modified in main code
 
 void main()
 {
-
- float intermediateX = sin((uTime)/1000);
+//float intermediateX = sin((uTime)/1000);
+ float intermediateX = 1;
 	float xPos = intermediateX*Position.x	;
 	
-		float intermediateY = cos(uTime/3000);
+	//float intermediateY = cos(uTime/3000);
+		float intermediateY = 1;
 	float yPos = intermediateY*Position.y;
 	
 	gl_Position = vec4(xPos, Position.y, Position.z, 1.0);

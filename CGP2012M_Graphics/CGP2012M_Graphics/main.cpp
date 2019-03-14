@@ -4,6 +4,8 @@
 
 int main(int argc, char *argv[]) 
 {
+	//SDL_Event event;
+
 	//Initialise SDL, make a window, blah
 	SDL_Start sdl;
 	sdl.Init();
@@ -14,9 +16,14 @@ int main(int argc, char *argv[])
 	//create a square
 	Square sq;
 
+	//test create circle
+	Circle Cir(0.35f);
+
 	//We're gonna just count up the time every frame
 	//so lets make a variable for that
 	GLfloat currentTime;
+
+	Events ev();
 
 	while (true)
 	{		
@@ -35,23 +42,15 @@ int main(int argc, char *argv[])
 
 		sq.setCurrentTime(currentTime);
 		sq.render();
+		Cir.render();
 
 		//RenderPresent() -- swap/flip buffers
 		SDL_GL_SwapWindow(sdl.win);
 
+		//event handeling
+		//ev.Update();
 
-		//-------------
 
-
-		//The event thing
-		SDL_Event event;
-
-		if (SDL_PollEvent(&event))
-		{
-			//If they close the window break the loop
-			if (event.type == SDL_QUIT)
-				break;
-		}
 	}
 
 	//Clean up

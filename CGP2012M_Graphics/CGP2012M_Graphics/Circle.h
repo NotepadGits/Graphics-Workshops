@@ -2,10 +2,23 @@
 #include <GL/glew.h>
 #include <array>
 #include <cmath>
+#include "ShaderClass.h"
+#include "TextureClass.h"
 
 class Circle
 {
 public:
+
+	//shader setup
+	Shader vSh1, fSh1;
+	GLuint shader;
+
+	//position
+	float x, y;
+
+	//texture to apply
+	Texture tex;
+
 
 	//set up vertex buffer object
 	GLuint VBO;
@@ -16,7 +29,7 @@ public:
 
 	//set up vertex array
 	GLfloat vertices[180];
-	//set up index array
+	//set up index array for stiching
 	GLuint indices[87] = {
 		0, 1, 2,
 		0, 2, 3,
@@ -49,11 +62,32 @@ public:
 	};
 
 
-	Circle(float radius, float offsetX, float offsetY)
+	Circle(float radius)
 	{
+
+		//generate verticies
+		genVerts(radius);
+
+		//create the shader program
+		createShaderProgram();
+
+		//Load textures for rendering
+		tex.load("..//..//Assets//Textures//carbon-fibre-seamless-texture.jpg");
+
+		//mount buffers with vertex data
+		setBuffers();
+
+
+
+
+	}
+
+	void genVerts(float radius)
+	{
+
 		//origin of circle at 0,0,0
-		vertices[0] = 0.0f + offsetX;
-		vertices[1] = 0.0f + offsetY;
+		vertices[0] = 0.0f;
+		vertices[1] = 0.0f;
 		vertices[2] = 0.0f;
 		//colour of origin vertex
 		vertices[3] = 0.0f;
@@ -65,20 +99,47 @@ public:
 		//set remaining vertices based on radius
 		for (int i = 6; i < 180; i += 6)
 		{
-			vertices[i] = (radius * cos(angle)) + offsetX;
-			vertices[i + 1] = (radius * sin(angle)) + offsetY;
+			vertices[i] = (radius * cos(angle));
+			vertices[i + 1] = (radius * sin(angle));
 			vertices[i + 2] = 0.0f;
 			//colour information
 			vertices[i + 3] = 0.8f;
 			vertices[i + 4] = 0.0f;
 			vertices[i + 5] = 0.4f;
-	
+
 			//increase angle value in radians
 			//(2*pi)/number of verts on circumference
-			angle += (2*3.141)/28.0f;
+			angle += (2 * 3.141) / 28.0f;
 
 		}
+
+
 	}
+	void createShaderProgram()
+	{
+		//mount vertex and fragment shaders
+		vSh1.shaderFileName("..//..//Assets//Shaders//shader_vColour_Texture.vert");
+		fSh1.shaderFileName("..//..//Assets//Shaders//shader_vColour_Texture.frag");
+
+		//replace above after adding matricies
+		///("..//..//Assets//Shaders//shader_vColour_Projection.vert");
+		///("..//..//Assets//Shaders//shader_vColour_Projection.frag");
+
+		//give the shaders an ID for compilation
+		vSh1.getShader(1);
+		fSh1.getShader(2);
+
+		//compile the shaders into a program
+		shader = glCreateProgram();
+		glAttachShader(shader, vSh1.shaderID);
+		glAttachShader(shader, fSh1.shaderID);
+		glLinkProgram(shader);
+
+		//clear reference IDs
+		glDeleteShader(vSh1.shaderID);
+		glDeleteShader(fSh1.shaderID);
+
+	};
 
 	void setBuffers()
 	{
