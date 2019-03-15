@@ -4,6 +4,20 @@
 class SDL_Start
 {
 public:
+
+	bool windowOpen = true;
+	bool fullScreen = false;
+
+		//window aspect/width/height
+
+	int Height;
+	int Width;
+	float AspectRatio;
+	int left;
+	int newHeight;
+	int newWidth;
+
+
 	SDL_Window *win;
 	SDL_GLContext glcontext;
 
@@ -28,6 +42,10 @@ public:
 
 		// Create an OpenGL context associated with the window.
 		glcontext = SDL_GL_CreateContext(win);
+		AspectRatio = (float)Width / (float)Height;
+		SDL_GetWindowSize(win, &Width, &Height);
+		glViewport(0, 0, Width, Height);
+
 
 		return glcontext;
 	}

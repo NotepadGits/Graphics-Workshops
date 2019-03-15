@@ -13,8 +13,8 @@ int main(int argc, char *argv[])
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	SDL_Event event;
-	Events ev(event);
+	//SDL_Event event;
+	Events ev;
 
 	//Create our triangle
 	Triangle_T tri;
@@ -66,7 +66,11 @@ int main(int argc, char *argv[])
 		//	if (event.type == SDL_QUIT)
 		//		break;
 		//}
-		ev.HandleEvents();
+		int temp = ev.HandleEvents(sdl);
+		if (temp == 69)
+		{
+		break;
+		}
 	}
 
 	//Clean up
