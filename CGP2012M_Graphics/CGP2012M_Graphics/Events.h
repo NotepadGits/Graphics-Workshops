@@ -27,6 +27,30 @@ public:
 				SDL_Quit();
 				return 69;
 			}
+			if (event.type == SDL_KEYDOWN)
+				switch (event.key.keysym.sym)
+				{
+				case SDLK_F11:
+					if (sdl.fullScreen == true)
+					{
+						sdl.fullScreen = false;
+						SDL_SetWindowFullscreen(sdl.win, SDL_WINDOW_RESIZABLE);
+					}
+					else {
+						sdl.fullScreen = true;
+						SDL_SetWindowFullscreen(sdl.win, SDL_WINDOW_FULLSCREEN_DESKTOP);
+					}
+
+					std::cout << "Window resized w:" << sdl.Width << " h:" << sdl.Height << std::endl;
+					SDL_GetWindowSize(sdl.win, &sdl.Width, &sdl.Height);
+					sdl.newWidth = sdl.Height * sdl.AspectRatio;
+					sdl.left = (sdl.Width - sdl.newWidth) / 2;
+					glViewport(sdl.left, 0, sdl.newWidth, sdl.Height);
+
+					break;
+				}
+
+
 			if (event.type == SDL_WINDOWEVENT)
 			{
 				switch (event.window.event)
@@ -42,6 +66,8 @@ public:
 
 				return 0;
 			}
+
+
 		}
 	};
 

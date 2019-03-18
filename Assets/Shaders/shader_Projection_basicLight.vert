@@ -14,10 +14,8 @@ uniform mat4 uProjection;
 uniform float uAmbientIntensity; //light intensity uniform
 uniform vec3 uLightColour;	//light colour uniform
 
-
 void main()
 {
-	
 	gl_Position = uProjection * uView * uModel * vec4(Position.x, Position.y, Position.z, 1.0);
 	Colour = vColour;
 	lightColour = uLightColour;

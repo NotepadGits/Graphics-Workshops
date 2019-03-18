@@ -2,9 +2,9 @@
 //TODO
 
 ///Window
-//fullscreen
-//moved/resized
-//aspect ratio is maintained
+//fullscreen				--complete
+//moved/resized				-- Complete
+//aspect ratio is maintained - Complete
 
 ///geometry
 //background with picture
@@ -33,3 +33,52 @@
 // bubbles have random hue
 // texture/geometry are maniplulated by shader
 
+// https://krazydad.com/tutorials/makecolors.php
+
+// https://realtimevfx.com/t/frost-grenade/6047
+
+// https://www.iquilezles.org/www/articles/sphereshadow/sphereshadow.htm
+
+// https://thebookofshaders.com/
+
+// https://github.com/stackgl/shader-school
+
+/// fragment
+
+//precision highp float;
+//uniform float time;
+//uniform vec2 resolution;
+//varying vec3 fPosition;
+//varying vec3 fNormal;
+//
+//void main()
+//{
+//
+//	float r = 1.0 + (sin(time * 20.0 + 0.0) / 2.0);
+//	float g = 1.0 + (sin(time * 20.0 + 2.0) / 2.0);
+//	float b = 1.0 + (sin(time * 20.0 + 4.0) / 2.0);
+//
+//	vec4 col = vec4(r, g, b, 1.0);
+//
+//	gl_FragColor = col;
+//}
+
+
+/// vertex
+//
+//precision highp float;
+//attribute vec3 position;
+//attribute vec3 normal;
+//uniform mat3 normalMatrix;
+//uniform mat4 modelViewMatrix;
+//uniform mat4 projectionMatrix;
+//varying vec3 fNormal;
+//varying vec3 fPosition;
+//
+//void main()
+//{
+//	fNormal = normalize(normalMatrix * normal);
+//	vec4 pos = modelViewMatrix * vec4(position, 1.0);
+//	fPosition = pos.xyz;
+//	gl_Position = projectionMatrix * pos;
+//}

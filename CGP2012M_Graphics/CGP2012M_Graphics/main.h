@@ -34,3 +34,4 @@
 #include "Circle.h"
 
 #include "Events.h"
+#include "Camera.h"

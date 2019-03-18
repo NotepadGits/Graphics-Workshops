@@ -30,6 +30,9 @@ int main(int argc, char *argv[])
 	//so lets make a variable for that
 	GLfloat currentTime;
 
+	//Initialise the camera	
+	Camera::INIT();
+
 	while (true)
 	{
 		//Clear the screen with a single colour
@@ -48,6 +51,7 @@ int main(int argc, char *argv[])
 		//sq.setCurrentTime(currentTime);
 		sq.render();
 
+		cr.update();
 		cr.render();
 
 		//RenderPresent() -- swap/flip buffers

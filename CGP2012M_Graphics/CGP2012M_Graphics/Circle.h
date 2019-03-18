@@ -4,6 +4,7 @@
 #include <array>
 #include <cmath>
 #include "ShaderClass.h"
+#include "Camera.h"
 
 class Circle
 {
@@ -26,12 +27,20 @@ public:
 	//set up texture
 	Texture tex;
 
-	//position
-	float x, y;
 
 	//set up vertex array
 	GLfloat vertices[240];
 
+	//MVP matrix
+	glm::mat4 translate = glm::mat4(1.0);
+	glm::mat4 scale     = glm::mat4(1.0);
+	glm::mat4 rotation  = glm::mat4(1.0);
+
+	float xPos;
+	float yPos;
+
+	float radius;
+	glm::vec3 velocity = glm::vec3(0);
 
 	//set up index array for stiching
 	GLuint indices[87] = {
@@ -66,8 +75,41 @@ public:
 	};
 
 
+	void passMatricesToShader()
+	{
+		glUseProgram(shaderProgram);
+		//set projection matrix uniform and other triangle values
+		int projectionLocation = glGetUniformLocation(shaderProgram, "uProjection");
+		glUniformMatrix4fv(projectionLocation, 1, GL_FALSE, glm::value_ptr(Camera::projectionMatrix));
+
+		glUniform1f(glGetUniformLocation(shaderProgram, "uTime"), SDL_GetTicks());
+
+
+
+		int modelLocation = glGetUniformLocation(shaderProgram, "uModel");
+		glUniformMatrix4fv(modelLocation, 1, GL_FALSE, glm::value_ptr(translate*rotation*scale));
+
+		int viewLocation = glGetUniformLocation(shaderProgram, "uView");
+		glUniformMatrix4fv(viewLocation, 1, GL_FALSE, glm::value_ptr(Camera::viewMatrix));
+	}
+
+	glm::mat4 getModelMatrix() 
+	{
+		return translate * rotation * scale;
+	}
+
+
+
 	Circle(float radius)
 	{
+		//translate 1 on x
+		translate = glm::translate(translate, glm::vec3(0.5, 0.5, 0));
+
+		//scale by 2 (on xy and z)
+		//scale = glm::scale(scale, glm::vec3(4));
+
+		//rotate by .. something on the z axis
+		//rotation = glm::rotate(rotation, 0.5f, glm::vec3(0, 0, 1));
 
 		createShaders();
 
@@ -117,8 +159,11 @@ public:
 
 	void createShaders() {
 		//shaders
-		vSh.shaderFileName("..//..//Assets//Shaders//shader_vColour_Projection.vert");
-		fSh.shaderFileName("..//..//Assets//Shaders//shader_vColour_Projection.frag");
+		//vSh.shaderFileName("..//..//Assets//Shaders//shader_vColour_Projection.vert");
+		//fSh.shaderFileName("..//..//Assets//Shaders//shader_vColour_Projection.frag");
+
+		vSh.shaderFileName("..//..//Assets//Shaders//shader.vert");
+		fSh.shaderFileName("..//..//Assets//Shaders//shader.frag");
 
 		vSh.getShader(1);
 		fSh.getShader(2);
@@ -174,10 +219,34 @@ public:
 		tex.setBuffers();
 	};
 
+
+	void update()
+	{
+		velocity = glm::vec3(0.01, 0, 0);
+
+		glm::vec3 position = glm::vec3(translate[3]);
+
+
+		if (position.x > 3)
+			velocity = glm::vec3(0);
+
+		translate = glm::translate(translate, velocity);
+
+		
+
+		
+		
+
+		std::cout << position.x << std::endl;
+	}
+
 	void render()
 	{
 		//draw the circle 
 		glBindVertexArray(VAO);
+
+		passMatricesToShader();
+
 		glBindTexture(GL_TEXTURE_2D, tex.texture);
 		glPointSize(5.0f);
 		glDrawElements(GL_TRIANGLES, 87, GL_UNSIGNED_INT, 0);
