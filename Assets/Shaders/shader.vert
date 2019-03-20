@@ -14,8 +14,16 @@ uniform float uTime;
 void main()
 {
 	
-	gl_Position = uProjection*uView*uModel*vec4(Position, 1.0); //update position of vertex after transfrom
+		vec3 offset;
+	offset.x = sin(Position.y * 3 + uTime * 0.005)*0.05;
+
+
+	gl_Position = uProjection*uView*uModel*vec4(Position + offset, 1.0); //update position of vertex after transfrom
 	Colour = vColour; 								//pass the vertex colour unchanged to the fragment shader
+
+
+
+
 	textureCoordinate = vec2(texCoord.x, 1 - texCoord.y);
 
 }

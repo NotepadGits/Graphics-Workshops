@@ -7,8 +7,9 @@
 #include "Camera.h"
 #include <cstdio>
 #include <cstdlib>
+#include "Triangle_T.h"
 
-class Circle
+class bullet
 {
 public:
 	//shaders
@@ -28,25 +29,25 @@ public:
 
 	//set up texture
 	Texture tex;
-	Texture tex1;
-	Texture tex2;
-	Texture tex3;
 
 	//set up vertex array
 	GLfloat vertices[240];
 
 	//MVP matrix
 	glm::mat4 translate = glm::mat4(1.0);
-	glm::mat4 scale     = glm::mat4(1.0);
-	glm::mat4 rotation  = glm::mat4(1.0);
+	glm::mat4 scale = glm::mat4(1);
+	glm::mat4 rotation = glm::mat4(1.0);
+
+	glm::vec3 position;
 
 	float xPos;
 	float yPos;
 
 	float radius;
-	float xSpeed =0, ySpeed=0.0, zSpeed=0;
+	float angle;
+	float xSpeed = 0, ySpeed = 0.00, zSpeed = 0;
 	glm::vec3 velocity = glm::vec3(xSpeed, ySpeed, zSpeed);
-	glm::vec3 position;
+
 
 	float timeTemp;
 	float radiusTemp;
@@ -101,33 +102,29 @@ public:
 		glUniformMatrix4fv(viewLocation, 1, GL_FALSE, glm::value_ptr(Camera::viewMatrix));
 	}
 
-	glm::mat4 getModelMatrix() 
+	glm::mat4 getModelMatrix()
 	{
 		return translate * rotation * scale;
 	}
 
 
 
-	Circle(float radius)
+	bullet(Triangle_T* plr)
 	{
-	this->radius = radius;
+		angle = plr->angle;
+
+		glm::vec3 position = glm::vec3(translate[3]);
+		glm::vec3 plrposition = glm::vec3(plr->translate[3]);
+
+		this->radius = 0.08f;
 
 
 		timeTemp = SDL_GetTicks();
 
-		srand(time(0));
-		float rVal = rand() % 10;
-		xSpeed = rVal /= 1000;
-		rVal = rand() % 1;
-		if (rVal == 0) xSpeed =-xSpeed;
-		rVal = rand() % 10;
-		ySpeed = rVal /= 1000;
-		rVal = rand() % 1;
-		if (rVal == 0) ySpeed = -ySpeed;
 
 
 		//translate 1 on x
-		translate = glm::translate(translate, glm::vec3(0.5, 0.5, 0));
+		translate = glm::translate(translate, plrposition);
 
 		//scale by 2 (on xy and z)
 
@@ -188,8 +185,8 @@ public:
 		//vSh.shaderFileName("..//..//Assets//Shaders//shader_vColour_Projection.vert");
 		//fSh.shaderFileName("..//..//Assets//Shaders//shader_vColour_Projection.frag");
 
-		vSh.shaderFileName("..//..//Assets//Shaders//shader.vert");
-		fSh.shaderFileName("..//..//Assets//Shaders//shader.frag");
+		vSh.shaderFileName("..//..//Assets//Shaders//shader2.vert");
+		fSh.shaderFileName("..//..//Assets//Shaders//shader2.frag");
 
 		vSh.getShader(1);
 		fSh.getShader(2);
@@ -207,10 +204,8 @@ public:
 	{
 
 		//load the texture file
-		tex.load("..//..//Assets//Textures//bubble.png");
-		tex1.load("..//..//Assets//Textures//bubble_1.png");
-		tex2.load("..//..//Assets//Textures//bubble_2.png");
-		tex3.load("..//..//Assets//Textures//bubble_3.png");
+		tex.load("..//..//Assets//Textures//bullet.png");
+
 	};
 
 	void setBuffers()
@@ -246,9 +241,7 @@ public:
 
 		//texture buffers
 		tex.setBuffers();
-		tex1.setBuffers();
-		tex2.setBuffers();
-		tex3.setBuffers();
+
 	};
 
 
@@ -256,37 +249,10 @@ public:
 	{
 
 
+		translate = glm::translate(translate, glm::vec3((float)cos(angle)*0.04f, (float)sin(angle)*0.04f, 0.0f));
+
 
 		glm::vec3 position = glm::vec3(translate[3]);
-		//glm::vec3 scalar = glm::vec3(scale[3]);
-
-		float scaleValue = scale[0].x;
-
-		float r = (radius / 2) * (scaleValue / 2);
-
-
-		if (position.x > 3.8 - r)
-			xSpeed = -xSpeed;
-		
-		if (position.x < 0.2 + r)
-			xSpeed = -xSpeed;
-
-		if (position.y > 2.8 - r)
-			ySpeed = -ySpeed;
-
-		if (position.y < 0.2 + r)
-			ySpeed = -ySpeed;
-
-
-		velocity = glm::vec3(xSpeed, ySpeed, 0);
-
-
-		translate = glm::translate(translate, velocity);
-
-		
-
-		
-		
 
 		std::cout << position.x << std::endl;
 	}
@@ -298,24 +264,7 @@ public:
 
 		passMatricesToShader();
 
-		if (SDL_GetTicks() % 1000 > 0 && SDL_GetTicks() % 1000 < 249)
-		{
 			glBindTexture(GL_TEXTURE_2D, tex.texture);
-		}
-		else if (SDL_GetTicks() % 1000 > 250 && SDL_GetTicks() % 1000 < 499)
-		{
-			glBindTexture(GL_TEXTURE_2D, tex1.texture);
-		}
-		else if (SDL_GetTicks() % 1000 > 500 && SDL_GetTicks() % 1000 < 749)
-		{
-			glBindTexture(GL_TEXTURE_2D, tex2.texture);
-		}
-		else if (SDL_GetTicks() % 1000 > 750 && SDL_GetTicks() % 1000 < 999)
-		{
-			glBindTexture(GL_TEXTURE_2D, tex3.texture);
-		}
-
-
 
 
 		glPointSize(5.0f);

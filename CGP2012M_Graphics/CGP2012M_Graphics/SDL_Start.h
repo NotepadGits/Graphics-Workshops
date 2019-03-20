@@ -42,7 +42,7 @@ public:
 		dH = tHeight / 2;
 
 		//SDL create window
-		win = SDL_CreateWindow("OpenGL Window", dW/2, dH/2, dW, dH, SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
+		win = SDL_CreateWindow("Jacob Lord - 14587899- CGP2012M-1819", dW/2, dH/2, dW, dH, SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
 
 		//set context attributes
 		//sets opengl version to 4.3

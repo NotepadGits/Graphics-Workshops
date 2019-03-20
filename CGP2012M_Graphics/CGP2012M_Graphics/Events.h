@@ -3,11 +3,13 @@
 #include "SDL_Start.h"
 #include "Triangle_T.h"
 #include <GL/glew.h>
-
+#include "spawner.h"
+#include "bulletController.h"
 class Events
 {
 public:
 	SDL_Event event;
+
 	Triangle_T* player;
 	Events()
 	{
@@ -23,7 +25,7 @@ public:
 		event = eventPassThrough;
 	};*/
 
-	int HandleEvents(SDL_Start &sdl)
+	int HandleEvents(SDL_Start &sdl, Spawner &spn, Control &control)
 	{
 		if (SDL_PollEvent(&event))
 		{
@@ -66,6 +68,15 @@ public:
 				case SDLK_d:
 					player->angle -= glm::radians(10.0f);
 					player->rotation = glm::rotate(player->rotation, glm::radians(-10.0f), glm::vec3(0, 0, 1));
+					break;
+				case SDLK_f:
+					spn.bub.erase(spn.bub.begin(),spn.bub.end());
+					break;
+				case SDLK_SPACE:
+					control.shoot();
+					break;
+				case SDLK_9:
+					spn.bub.push_back(new Circle(0.2f));
 					break;
 
 				}

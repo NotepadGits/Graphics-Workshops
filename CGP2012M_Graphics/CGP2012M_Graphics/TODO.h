@@ -8,12 +8,12 @@
 
 ///geometry
 //background with picture -- completed
-//world boundries
+//world boundries -- completed
 //player can shoot
 //animation when bubble hit
 
 ///game
-//bubbles cant leave the screen 
+//bubbles cant leave the screen  -- completed 
 //ubbles are desroyed when shot
 //player has 3 lives and shown on screen
 //other gameplay features added (bubbles spawn 2 smaller bubbles)
@@ -82,3 +82,9 @@
 //	fPosition = pos.xyz;
 //	gl_Position = projectionMatrix * pos;
 //}
+
+
+//
+//Bullets
+//bullt spawner
+//collision between bullet and circle

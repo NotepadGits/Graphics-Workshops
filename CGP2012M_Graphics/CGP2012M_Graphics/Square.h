@@ -59,7 +59,7 @@ public:
 	*/
 	Square() {
 		translate = glm::translate(translate, glm::vec3(2,1.5, 0));
-		scale = glm::scale(scale, glm::vec3(20,15,0));
+		scale = glm::scale(scale, glm::vec3(19,14,0));
 
 		//load the sharders and compile
 		createShaderProgram();

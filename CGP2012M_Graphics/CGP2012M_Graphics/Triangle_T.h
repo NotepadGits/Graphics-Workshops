@@ -52,7 +52,7 @@ public:
 	Triangle_T()
 	{
 		translate = glm::translate(translate, glm::vec3(1, 1, 0));
-		scale = glm::scale(scale, glm::vec3(0.29, 0.2, 0));
+		scale = glm::scale(scale, glm::vec3(0.5, 0.2, 0));
 		//Compile, load all the shaders and stuff
 		createShaderProgram();
 

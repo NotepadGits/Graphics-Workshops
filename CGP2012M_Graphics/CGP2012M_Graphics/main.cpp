@@ -21,8 +21,6 @@ int main(int argc, char *argv[])
 	//create a square
 	Square sq;
 
-	//create test Circle
-	Circle cr(0.2f);
 
 	//create spawner
 	Spawner spn;
@@ -38,6 +36,8 @@ int main(int argc, char *argv[])
 	Events ev;
 	ev.playerPassthrough(&tri);
 
+	Control control(&tri, &spn);
+
 	while (true)
 	{
 		//Clear the screen with a single colour
@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
 		currentTime = SDL_GetTicks();
 
 		spn.spawn();
-
+		control.update();
 		//Actually draw the triangle on the screen
 
 
@@ -60,11 +60,8 @@ int main(int argc, char *argv[])
 		spn.update();
 
 
-		cr.update();
-		cr.render();
-
 		tri.render();
-
+		control.redner();
 		//RenderPresent() -- swap/flip buffers
 		SDL_GL_SwapWindow(sdl.win);
 
@@ -81,7 +78,7 @@ int main(int argc, char *argv[])
 		//	if (event.type == SDL_QUIT)
 		//		break;
 		//}
-		int temp = ev.HandleEvents(sdl);
+		int temp = ev.HandleEvents(sdl, spn, control);
 		if (temp == 69)
 		{
 		break;
