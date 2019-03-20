@@ -13,8 +13,7 @@ int main(int argc, char *argv[])
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	//SDL_Event event;
-	Events ev;
+
 
 	//Create our triangle
 	Triangle_T tri;
@@ -25,6 +24,8 @@ int main(int argc, char *argv[])
 	//create test Circle
 	Circle cr(0.2f);
 
+	//create spawner
+	Spawner spn;
 
 	//We're gonna just count up the time every frame
 	//so lets make a variable for that
@@ -32,6 +33,10 @@ int main(int argc, char *argv[])
 
 	//Initialise the camera	
 	Camera::INIT();
+
+	//SDL_Event event;
+	Events ev;
+	ev.playerPassthrough(&tri);
 
 	while (true)
 	{
@@ -42,17 +47,23 @@ int main(int argc, char *argv[])
 		//Set the current time to the ticks in SDL
 		currentTime = SDL_GetTicks();
 
-		//Set the current time (in the shader)
-		tri.setCurrentTime(currentTime);
+		spn.spawn();
 
 		//Actually draw the triangle on the screen
-		tri.render();
+
+
 
 		//sq.setCurrentTime(currentTime);
 		sq.render();
 
+
+		spn.update();
+
+
 		cr.update();
 		cr.render();
+
+		tri.render();
 
 		//RenderPresent() -- swap/flip buffers
 		SDL_GL_SwapWindow(sdl.win);

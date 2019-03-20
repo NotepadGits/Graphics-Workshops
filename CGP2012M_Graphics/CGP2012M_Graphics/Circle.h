@@ -5,6 +5,8 @@
 #include <cmath>
 #include "ShaderClass.h"
 #include "Camera.h"
+#include <cstdio>
+#include <cstdlib>
 
 class Circle
 {
@@ -26,7 +28,9 @@ public:
 
 	//set up texture
 	Texture tex;
-
+	Texture tex1;
+	Texture tex2;
+	Texture tex3;
 
 	//set up vertex array
 	GLfloat vertices[240];
@@ -40,8 +44,12 @@ public:
 	float yPos;
 
 	float radius;
-	glm::vec3 velocity = glm::vec3(0);
+	float xSpeed =0, ySpeed=0.015, zSpeed=0;
+	glm::vec3 velocity = glm::vec3(xSpeed, ySpeed, zSpeed);
 
+
+	float timeTemp;
+	float radiusTemp;
 	//set up index array for stiching
 	GLuint indices[87] = {
 		0, 1, 2,
@@ -82,7 +90,7 @@ public:
 		int projectionLocation = glGetUniformLocation(shaderProgram, "uProjection");
 		glUniformMatrix4fv(projectionLocation, 1, GL_FALSE, glm::value_ptr(Camera::projectionMatrix));
 
-		glUniform1f(glGetUniformLocation(shaderProgram, "uTime"), SDL_GetTicks());
+		glUniform1f(glGetUniformLocation(shaderProgram, "uTime"), SDL_GetTicks() + timeTemp);
 
 
 
@@ -102,11 +110,29 @@ public:
 
 	Circle(float radius)
 	{
+
+
+
+		timeTemp = SDL_GetTicks();
+
+		srand(time(0));
+		float rVal = rand() % 10;
+		xSpeed = rVal /= 1000;
+		rVal = rand() % 1;
+		if (rVal == 0) xSpeed =-xSpeed;
+		rVal = rand() % 10;
+		ySpeed = rVal /= 1000;
+		rVal = rand() % 1;
+		if (rVal == 0) ySpeed = -ySpeed;
+
+
 		//translate 1 on x
 		translate = glm::translate(translate, glm::vec3(0.5, 0.5, 0));
 
 		//scale by 2 (on xy and z)
-		//scale = glm::scale(scale, glm::vec3(4));
+
+
+		//scale = glm::scale(scale, glm::vec3(radiusTemp));
 
 		//rotate by .. something on the z axis
 		//rotation = glm::rotate(rotation, 0.5f, glm::vec3(0, 0, 1));
@@ -182,13 +208,16 @@ public:
 
 		//load the texture file
 		tex.load("..//..//Assets//Textures//bubble.png");
+		tex1.load("..//..//Assets//Textures//bubble_1.png");
+		tex2.load("..//..//Assets//Textures//bubble_2.png");
+		tex3.load("..//..//Assets//Textures//bubble_3.png");
 	};
 
 	void setBuffers()
 	{
 		//
 		//OpenGL buffers
-		//set up 1 for the triangle
+		//set up 1 for the circle
 		glGenBuffers(1, &VBO);
 		// Initialization code using Vertex Array Object (VAO) (done once (unless the object frequently changes))
 		glGenVertexArrays(1, &VAO);
@@ -217,18 +246,35 @@ public:
 
 		//texture buffers
 		tex.setBuffers();
+		tex1.setBuffers();
+		tex2.setBuffers();
+		tex3.setBuffers();
 	};
 
 
 	void update()
 	{
-		velocity = glm::vec3(0.01, 0, 0);
+
+
 
 		glm::vec3 position = glm::vec3(translate[3]);
 
 
-		if (position.x > 3)
-			velocity = glm::vec3(0);
+		if (position.x > 4)
+			xSpeed = -xSpeed;
+		
+		if (position.x < 0)
+			xSpeed = -xSpeed;
+
+		if (position.y > 3)
+			ySpeed = -ySpeed;
+
+		if (position.y < 0)
+			ySpeed = -ySpeed;
+
+
+		velocity = glm::vec3(xSpeed, ySpeed, 0);
+
 
 		translate = glm::translate(translate, velocity);
 
@@ -247,7 +293,26 @@ public:
 
 		passMatricesToShader();
 
-		glBindTexture(GL_TEXTURE_2D, tex.texture);
+		if (SDL_GetTicks() % 1000 > 0 && SDL_GetTicks() % 1000 < 249)
+		{
+			glBindTexture(GL_TEXTURE_2D, tex.texture);
+		}
+		else if (SDL_GetTicks() % 1000 > 250 && SDL_GetTicks() % 1000 < 499)
+		{
+			glBindTexture(GL_TEXTURE_2D, tex1.texture);
+		}
+		else if (SDL_GetTicks() % 1000 > 500 && SDL_GetTicks() % 1000 < 749)
+		{
+			glBindTexture(GL_TEXTURE_2D, tex2.texture);
+		}
+		else if (SDL_GetTicks() % 1000 > 750 && SDL_GetTicks() % 1000 < 999)
+		{
+			glBindTexture(GL_TEXTURE_2D, tex3.texture);
+		}
+
+
+
+
 		glPointSize(5.0f);
 		glDrawElements(GL_TRIANGLES, 87, GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);

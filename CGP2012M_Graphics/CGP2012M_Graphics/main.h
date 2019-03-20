@@ -35,3 +35,5 @@
 
 #include "Events.h"
 #include "Camera.h"
+
+#include "spawner.h"

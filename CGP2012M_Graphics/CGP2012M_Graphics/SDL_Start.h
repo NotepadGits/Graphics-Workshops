@@ -7,18 +7,24 @@ class SDL_Start
 {
 public:
 
+
+
 	bool windowOpen = true;
 	bool fullScreen = false;
 
 		//window aspect/width/height
 
-	int Height;
-	int Width;
+	int Height = 540;
+	int Width = 960;
 	float AspectRatio;
 	int left;
 	int newHeight;
 	int newWidth;
 
+	//get desktop stuff
+	int dH;
+	int dW;
+	SDL_DisplayMode DM;
 
 	SDL_Window *win;
 	SDL_GLContext glcontext;
@@ -28,8 +34,15 @@ public:
 		//SDL Initialise
 		SDL_Init(SDL_INIT_EVERYTHING);
 
+		//get desktop info
+		SDL_GetCurrentDisplayMode(0, &DM);
+		auto tWidth = DM.w;
+		auto tHeight = DM.h;
+		dW = tWidth / 2;
+		dH = tHeight / 2;
+
 		//SDL create window
-		win = SDL_CreateWindow("OpenGL Window", 100, 100, 800, 600, SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
+		win = SDL_CreateWindow("OpenGL Window", dW/2, dH/2, dW, dH, SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
 
 		//set context attributes
 		//sets opengl version to 4.3

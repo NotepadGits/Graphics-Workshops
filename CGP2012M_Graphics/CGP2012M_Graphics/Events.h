@@ -1,18 +1,23 @@
 #pragma once
 #include "SDL.h"
 #include "SDL_Start.h"
+#include "Triangle_T.h"
+#include <GL/glew.h>
 
 class Events
 {
 public:
 	SDL_Event event;
-
+	Triangle_T* player;
 	Events()
 	{
 
 	}
 	;
-
+	void playerPassthrough(Triangle_T* plr)
+	{
+		player = plr;
+	}
 	/*Events(SDL_Event eventPassThrough)
 	{
 		event = eventPassThrough;
@@ -48,6 +53,21 @@ public:
 					glViewport(sdl.left, 0, sdl.newWidth, sdl.Height);
 
 					break;
+				case SDLK_w:
+					player->translate = glm::translate(player->translate, glm::vec3((float)cos(player->angle)*0.02f, (float)sin(player->angle)*0.02f, 0.0f));
+					break;
+				case SDLK_s:
+					player->translate = glm::translate(player->translate, glm::vec3((float)cos(player->angle)*-0.02f, (float)sin(player->angle)*-0.02f, 0.0f));
+					break;
+				case SDLK_a:
+					player->angle += glm::radians(10.0f);
+					player->rotation = glm::rotate(player->rotation, glm::radians(10.0f), glm::vec3(0, 0, 1));
+					break;
+				case SDLK_d:
+					player->angle -= glm::radians(10.0f);
+					player->rotation = glm::rotate(player->rotation, glm::radians(-10.0f), glm::vec3(0, 0, 1));
+					break;
+
 				}
 
 

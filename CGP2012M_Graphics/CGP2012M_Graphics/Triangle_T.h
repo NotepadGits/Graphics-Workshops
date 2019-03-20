@@ -4,6 +4,7 @@
 #include <ctime>
 #include "ShaderClass.h"
 #include "TextureClass.h"
+#include "Camera.h"
 
 class Triangle_T
 {
@@ -31,6 +32,15 @@ public:
 	//set up vertex array object
 	GLuint VAO;
 
+	glm::mat4 translate = glm::mat4(1.0);
+	glm::mat4 scale = glm::mat4(1.0);
+	glm::mat4 rotation = glm::mat4(1.0);
+
+	float xPos;
+	float yPos;
+	float angle = 0;
+
+	glm::vec3 velocity = glm::vec3(0);
 
 
 
@@ -41,11 +51,13 @@ public:
 	*/
 	Triangle_T()
 	{
+		translate = glm::translate(translate, glm::vec3(1, 1, 0));
+		scale = glm::scale(scale, glm::vec3(0.29, 0.2, 0));
 		//Compile, load all the shaders and stuff
 		createShaderProgram();
 
 		//Load in the texture to be rendered
-		tex.load("..//..//Assets//Textures//carbon-fibre-seamless-texture.jpg");
+		tex.load("..//..//Assets//Textures//background.png");
 
 		//Set the buffers -- upload vertex data and all that jazz
 		setBuffers();
@@ -78,8 +90,8 @@ public:
 	void createShaderProgram()
 	{
 		//Shaders
-		vSh1.shaderFileName("..//..//Assets//Shaders//shader_vColour_Texture.vert");
-		fSh1.shaderFileName("..//..//Assets//Shaders//shader_vColour_Texture.frag");
+		vSh1.shaderFileName("..//..//Assets//Shaders//shader2.vert");
+		fSh1.shaderFileName("..//..//Assets//Shaders//shader2.frag");
 
 		//Get the shaders id and compile them, etc
 		vSh1.getShader(1);
@@ -143,6 +155,29 @@ public:
 	}
 
 
+	void passMatricesToShader()
+	{
+		glUseProgram(shader);
+		//set projection matrix uniform and other triangle values
+		int projectionLocation = glGetUniformLocation(shader, "uProjection");
+		glUniformMatrix4fv(projectionLocation, 1, GL_FALSE, glm::value_ptr(Camera::projectionMatrix));
+
+		glUniform1f(glGetUniformLocation(shader, "uTime"), SDL_GetTicks());
+
+
+
+		int modelLocation = glGetUniformLocation(shader, "uModel");
+		glUniformMatrix4fv(modelLocation, 1, GL_FALSE, glm::value_ptr(translate*rotation*scale));
+
+		int viewLocation = glGetUniformLocation(shader, "uView");
+		glUniformMatrix4fv(viewLocation, 1, GL_FALSE, glm::value_ptr(Camera::viewMatrix));
+	}
+
+	glm::mat4 getModelMatrix()
+	{
+		return translate * rotation * scale;
+	}
+
 	/**
 	 * @brief Render function -- renders the textured triangle
 	 *
@@ -151,6 +186,8 @@ public:
 	{
 		//Use the shader to render
 		glUseProgram(shader);
+
+		passMatricesToShader();
 
 		//Tell OpenGL we're talking about this texture
 		glBindTexture(GL_TEXTURE_2D, tex.texture);

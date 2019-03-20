@@ -7,31 +7,31 @@
 //aspect ratio is maintained - Complete
 
 ///geometry
-//background with picture
+//background with picture -- completed
 //world boundries
 //player can shoot
 //animation when bubble hit
 
 ///game
-//bubbles cant leave the screen
+//bubbles cant leave the screen 
 //ubbles are desroyed when shot
 //player has 3 lives and shown on screen
 //other gameplay features added (bubbles spawn 2 smaller bubbles)
 
 ///colours and textures
-//geometry arnt same colour
-//player has texture
-//bubbles and background are textured
-//transparency
+//geometry arnt same colour --completed
+//player has texture  -- completed
+//bubbles and background are textured  --completed
+//transparency -- completed
 //textured destruction
 
 
 ///shaders
-//shaders are used
-//shaders are in their own files?????
-//uniforms are used in shaders
-// bubbles have random hue
-// texture/geometry are maniplulated by shader
+//shaders are used -- completed
+//shaders are in their own files????? -- completed
+//uniforms are used in shaders -- completed
+// bubbles have random hue -- completed
+// texture/geometry are maniplulated by shader -- semi completed
 
 // https://krazydad.com/tutorials/makecolors.php
 

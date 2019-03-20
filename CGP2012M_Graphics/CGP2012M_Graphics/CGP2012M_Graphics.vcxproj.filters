@@ -54,6 +54,9 @@
     <ClInclude Include="Camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="spawner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -107,6 +110,12 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="..\..\Assets\Shaders\shader.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\shader2.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\shader2.vert">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
