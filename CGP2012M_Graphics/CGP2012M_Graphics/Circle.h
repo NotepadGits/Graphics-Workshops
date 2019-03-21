@@ -129,6 +129,8 @@ public:
 		//translate 1 on x
 		translate = glm::translate(translate, glm::vec3(0.5, 0.5, 0));
 
+		position = glm::vec3(translate[3]);
+
 		//scale by 2 (on xy and z)
 
 
@@ -257,7 +259,7 @@ public:
 
 
 
-		glm::vec3 position = glm::vec3(translate[3]);
+		position = glm::vec3(translate[3]);
 		//glm::vec3 scalar = glm::vec3(scale[3]);
 
 		float scaleValue = scale[0].x;

@@ -31,7 +31,7 @@ public:
 
 	void shoot()
 	{
-		if (bul.size() >= 0)
+		if (bul.size() < 1)
 		{
 			bul.push_back(new bullet(plr));
 		}
@@ -41,6 +41,15 @@ public:
 	{
 		for (int I = 0; I < bul.size(); I++)
 		{
+
+			if (bul.at(I)->position.x > 4 || bul.at(I)->position.x < 0 || bul.at(I)->position.y > 3 || bul.at(I)->position.y < 0)
+			{
+
+				bul.erase(bul.begin() + I);
+				return;
+			}
+
+
 			for (int i = 0; i < spwn->bub.size(); i++)
 			{
 
@@ -48,15 +57,28 @@ public:
 
 
 
-			//	glm::vec3 bulPosition = bul[I]->position;
-			//	glm::vec3 bubPosition = spwn->bub.at(i)->position;
+				glm::vec3 bulPosition = bul[I]->position;
+				glm::vec3 bubPosition = spwn->bub.at(i)->position;
 
-			//	if (abs(bulPosition.x - bubPosition.x) < spwn->radius)
-			//	{
+				float dist = glm::distance(bulPosition, bubPosition);
 
-			//		bul.erase(bul.begin(), bul.end());
-			//		spwn->bub.erase(spwn->bub.begin() + i);
-			//	}
+				/*if (bulPosition.x >= spwn->bub.at(i)->position.x - 0.02f && bulPosition.x <= spwn->bub.at(i)->position.x + 0.02f && bulPosition.y >= spwn->bub.at(i)->position.y - 0.02f && bulPosition.y <= spwn->bub.at(i)->position.y + 0.02f)*/
+
+				if(dist < spwn->bub.at(i)->radius)
+				{
+
+					//std::cout << bul[I]->position.x << std::endl;
+
+					//std::cout << "aaaaaaaaaaa" << std::endl;
+					//bul[I]->position.x = 100;
+
+					bul.erase(bul.begin() + I);
+					spwn->bub.erase(spwn->bub.begin() + i);
+					return;
+				}
+
+		
+
 
 
 			}

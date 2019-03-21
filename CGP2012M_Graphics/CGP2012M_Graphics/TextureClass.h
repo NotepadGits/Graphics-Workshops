@@ -20,11 +20,11 @@ public:
 
 		if(tex == NULL)
 		{
-			std::cout << "Error loading texture: " << fileName << std::endl;
+			//std::cout << "Error loading texture: " << fileName << std::endl;
 		}
 		else
 		{
-			std::cout << "Success loading " << fileName << std::endl;
+			//std::cout << "Success loading " << fileName << std::endl;
 		}
 		
 	}

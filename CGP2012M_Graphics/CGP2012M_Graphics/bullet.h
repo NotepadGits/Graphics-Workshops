@@ -113,7 +113,7 @@ public:
 	{
 		angle = plr->angle;
 
-		glm::vec3 position = glm::vec3(translate[3]);
+		position = glm::vec3(translate[3]);
 		glm::vec3 plrposition = glm::vec3(plr->translate[3]);
 
 		this->radius = 0.08f;
@@ -252,9 +252,9 @@ public:
 		translate = glm::translate(translate, glm::vec3((float)cos(angle)*0.04f, (float)sin(angle)*0.04f, 0.0f));
 
 
-		glm::vec3 position = glm::vec3(translate[3]);
+		position = glm::vec3(translate[3]);
 
-		std::cout << position.x << std::endl;
+		//std::cout << position.x << std::endl;
 	}
 
 	void render()
