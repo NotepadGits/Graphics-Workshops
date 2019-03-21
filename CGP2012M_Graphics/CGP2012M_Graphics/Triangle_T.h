@@ -5,6 +5,7 @@
 #include "ShaderClass.h"
 #include "TextureClass.h"
 #include "Camera.h"
+#include "Lives.h"
 
 class Triangle_T
 {
@@ -182,8 +183,35 @@ public:
 	 * @brief Render function -- renders the textured triangle
 	 *
 	*/
-	void render()
+	void render(Lives &lives)
 	{
+		glm::vec3 position = glm::vec3(translate[3]);
+
+		if (position.x > 3.8)
+		{
+		lives.LivesRemaining -= 1;
+		translate = glm::translate(translate, glm::vec3(-1.5, 0, 0));
+		}
+		if (position.x < 0.2)
+		{
+			lives.LivesRemaining -= 1;
+			translate = glm::translate(translate, glm::vec3(1.5, 0, 0));
+		}
+		if (position.y > 2.8)
+		{
+			lives.LivesRemaining -= 1;
+			translate = glm::translate(translate, glm::vec3(0, -1.5, 0));
+		}
+		if (position.y < 0.2)
+		{
+			lives.LivesRemaining -= 1;
+			translate = glm::translate(translate, glm::vec3(0, 1.5, 0));
+		}
+
+
+
+
+
 		//Use the shader to render
 		glUseProgram(shader);
 

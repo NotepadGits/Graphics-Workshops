@@ -39,3 +39,6 @@
 #include "spawner.h"
 #include "bullet.h"
 #include "bulletController.h"
+#include "bomb.h"
+#include "Bombtext.h"
+#include "Lives.h"

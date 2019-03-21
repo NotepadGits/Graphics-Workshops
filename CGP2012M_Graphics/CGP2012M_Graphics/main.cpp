@@ -20,8 +20,9 @@ int main(int argc, char *argv[])
 
 	//create a square
 	Square sq;
-
-
+	Bomb bomb;
+	BombText bText;
+	Lives lives;
 	//create spawner
 	Spawner spn;
 
@@ -60,8 +61,11 @@ int main(int argc, char *argv[])
 		spn.update();
 
 
-		tri.render();
+		tri.render(lives);
 		control.redner();
+		bomb.render();
+		bText.render();
+	lives.render();
 		//RenderPresent() -- swap/flip buffers
 		SDL_GL_SwapWindow(sdl.win);
 
@@ -69,17 +73,8 @@ int main(int argc, char *argv[])
 		//-------------
 
 
-		//The event thing
-		//SDL_Event event;
-
-		//if (SDL_PollEvent(&event))
-		//{
-		//	//If they close the window break the loop
-		//	if (event.type == SDL_QUIT)
-		//		break;
-		//}
-		int temp = ev.HandleEvents(sdl, spn, control);
-		if (temp == 69)
+		int temp = ev.HandleEvents(sdl, spn, control, bomb);
+		if (lives.LivesRemaining < 1)
 		{
 		break;
 		}

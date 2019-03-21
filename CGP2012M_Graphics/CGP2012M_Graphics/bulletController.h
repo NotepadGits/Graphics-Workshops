@@ -31,7 +31,7 @@ public:
 
 	void shoot()
 	{
-		if (bul.size() < 1)
+		if (bul.size() >= 0)
 		{
 			bul.push_back(new bullet(plr));
 		}
@@ -48,15 +48,15 @@ public:
 
 
 
-				glm::vec3 bulPosition = bul.at(I)->position;
-				glm::vec3 bubPosition = spwn->bub.at(i)->position;
+			//	glm::vec3 bulPosition = bul[I]->position;
+			//	glm::vec3 bubPosition = spwn->bub.at(i)->position;
 
-				if (abs(bulPosition.x - bubPosition.x) < spwn->radius)
-				{
+			//	if (abs(bulPosition.x - bubPosition.x) < spwn->radius)
+			//	{
 
-					bul.erase(bul.begin(), bul.end());
-					spwn->bub.erase(spwn->bub.begin() + i);
-				}
+			//		bul.erase(bul.begin(), bul.end());
+			//		spwn->bub.erase(spwn->bub.begin() + i);
+			//	}
 
 
 			}

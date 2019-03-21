@@ -19,12 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="bomb.h" />
+    <ClInclude Include="Bombtext.h" />
     <ClInclude Include="bullet.h" />
     <ClInclude Include="bulletController.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Events.h" />
     <ClInclude Include="GLerror.h" />
+    <ClInclude Include="Lives.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="SDL_Start.h" />
     <ClInclude Include="ShaderClass.h" />

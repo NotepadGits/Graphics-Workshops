@@ -5,6 +5,7 @@
 #include <GL/glew.h>
 #include "spawner.h"
 #include "bulletController.h"
+#include "bomb.h"
 class Events
 {
 public:
@@ -25,7 +26,7 @@ public:
 		event = eventPassThrough;
 	};*/
 
-	int HandleEvents(SDL_Start &sdl, Spawner &spn, Control &control)
+	int HandleEvents(SDL_Start &sdl, Spawner &spn, Control &control, Bomb &bomb)
 	{
 		if (SDL_PollEvent(&event))
 		{
@@ -70,6 +71,7 @@ public:
 					player->rotation = glm::rotate(player->rotation, glm::radians(-10.0f), glm::vec3(0, 0, 1));
 					break;
 				case SDLK_f:
+					bomb.bomb_used = true;
 					spn.bub.erase(spn.bub.begin(),spn.bub.end());
 					break;
 				case SDLK_SPACE:

@@ -288,7 +288,7 @@ public:
 		
 		
 
-		std::cout << position.x << std::endl;
+		//std::cout << position.x << std::endl;
 	}
 
 	void render()
