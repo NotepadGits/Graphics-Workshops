@@ -26,9 +26,12 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Events.h" />
+    <ClInclude Include="GameObject.h" />
     <ClInclude Include="GLerror.h" />
     <ClInclude Include="Lives.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="Model.h" />
+    <ClInclude Include="ModelLoaderClass.h" />
     <ClInclude Include="SDL_Start.h" />
     <ClInclude Include="ShaderClass.h" />
     <ClInclude Include="spawner.h" />

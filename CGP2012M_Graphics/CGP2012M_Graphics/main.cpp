@@ -12,7 +12,8 @@ int main(int argc, char *argv[])
 	glewInit();
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LEQUAL);
 
 
 	//Create our triangle
@@ -31,7 +32,7 @@ int main(int argc, char *argv[])
 	GLfloat currentTime;
 
 	//Initialise the camera	
-	Camera::INIT();
+	Camera::INIT(sdl.dW, sdl.dH);
 
 	//SDL_Event event;
 	Events ev;
@@ -43,13 +44,14 @@ int main(int argc, char *argv[])
 	{
 		//Clear the screen with a single colour
 		glClearColor(1.0f, 0.8f, 1.0f, 1);
-		glClear(GL_COLOR_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		//Set the current time to the ticks in SDL
 		currentTime = SDL_GetTicks();
 
 		spn.spawn();
 		control.update();
+		Camera::update();
 		//Actually draw the triangle on the screen
 
 

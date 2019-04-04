@@ -80,6 +80,18 @@ public:
 				case SDLK_9:
 					spn.bub.push_back(new Circle(0.2f));
 					break;
+				case SDLK_UP:
+					Camera::position.y += 1.0f;
+						break;
+					case SDLK_LEFT:
+						Camera::position.x -= 1.0f;
+						break;
+					case SDLK_DOWN:
+						Camera::position.y -= 1.0f;
+						break;
+					case SDLK_RIGHT:
+						Camera::position.x += 1.0f;
+						break;
 
 				}
 
@@ -94,6 +106,7 @@ public:
 					sdl.newWidth = sdl.Height * sdl.AspectRatio;
 					sdl.left = (sdl.Width - sdl.newWidth) / 2;
 					glViewport(sdl.left, 0, sdl.newWidth, sdl.Height);
+					Camera::resize(sdl.Width, sdl.Height);
 					break;
 				}
 
