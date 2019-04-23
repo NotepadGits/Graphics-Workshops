@@ -25,9 +25,13 @@
     <ClInclude Include="bulletController.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Circle.h" />
+    <ClInclude Include="Circle3D.h" />
+    <ClInclude Include="Control3D.h" />
     <ClInclude Include="Events.h" />
+    <ClInclude Include="Events3D.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GLerror.h" />
+    <ClInclude Include="Light.h" />
     <ClInclude Include="Lives.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="Model.h" />
@@ -35,6 +39,7 @@
     <ClInclude Include="SDL_Start.h" />
     <ClInclude Include="ShaderClass.h" />
     <ClInclude Include="spawner.h" />
+    <ClInclude Include="Spawner3D.h" />
     <ClInclude Include="Square.h" />
     <ClInclude Include="TextureClass.h" />
     <ClInclude Include="Textures.h" />

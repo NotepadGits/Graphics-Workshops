@@ -18,12 +18,12 @@ public:
 
 
 
-	//shaders
-	Shader vSh, fSh;
-	GLuint shaderProgram;
-
-
-
+	//set up vertex buffer object
+	GLuint VBO;
+	//set up vertex array object
+	GLuint VAO;
+	//set up index buffer object
+	GLuint EBO;
 
 	//set up texture
 	Texture tex;

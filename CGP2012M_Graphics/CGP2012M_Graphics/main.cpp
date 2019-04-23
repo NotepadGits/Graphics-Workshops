@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 	BombText bText;
 	Lives lives;
 	//create spawner
-	Spawner spn;
+	Spawner3D spn;
 
 	//We're gonna just count up the time every frame
 	//so lets make a variable for that
@@ -35,10 +35,10 @@ int main(int argc, char *argv[])
 	Camera::INIT(sdl.dW, sdl.dH);
 
 	//SDL_Event event;
-	Events ev;
+	Events3D ev;
 	ev.playerPassthrough(&tri);
 
-	Control control(&tri, &spn);
+	Control3D control(&tri, &spn);
 
 	while (true)
 	{

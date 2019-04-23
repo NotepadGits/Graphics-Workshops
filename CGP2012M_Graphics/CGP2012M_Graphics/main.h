@@ -42,3 +42,10 @@
 #include "bomb.h"
 #include "Bombtext.h"
 #include "Lives.h"
+
+
+//3d stuff
+#include "Circle3D.h"
+#include "Spawner3D.h"
+#include "Control3D.h"
+#include "Events3D.h"

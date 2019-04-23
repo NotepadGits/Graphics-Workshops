@@ -19,14 +19,11 @@
     <Filter Include="Resource Files\Unused">
       <UniqueIdentifier>{222d4392-c936-418e-9ca4-aeef43d10c5f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\2dLegacy">
+      <UniqueIdentifier>{4a5f6c0c-7808-4f7e-b7a7-68b801f37f48}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Triangle_T.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Square.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="main.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -48,31 +45,7 @@
     <ClInclude Include="TODO.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
-    <ClInclude Include="Events.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Circle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Camera.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="spawner.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="bullet.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="bulletController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="bomb.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Bombtext.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Lives.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ModelLoaderClass.h">
@@ -81,7 +54,52 @@
     <ClInclude Include="Model.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Circle3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Spawner3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bomb.h">
+      <Filter>Header Files\2dLegacy</Filter>
+    </ClInclude>
+    <ClInclude Include="Bombtext.h">
+      <Filter>Header Files\2dLegacy</Filter>
+    </ClInclude>
+    <ClInclude Include="bullet.h">
+      <Filter>Header Files\2dLegacy</Filter>
+    </ClInclude>
+    <ClInclude Include="bulletController.h">
+      <Filter>Header Files\2dLegacy</Filter>
+    </ClInclude>
+    <ClInclude Include="Circle.h">
+      <Filter>Header Files\2dLegacy</Filter>
+    </ClInclude>
+    <ClInclude Include="Events.h">
+      <Filter>Header Files\2dLegacy</Filter>
+    </ClInclude>
     <ClInclude Include="GameObject.h">
+      <Filter>Header Files\2dLegacy</Filter>
+    </ClInclude>
+    <ClInclude Include="Lives.h">
+      <Filter>Header Files\2dLegacy</Filter>
+    </ClInclude>
+    <ClInclude Include="spawner.h">
+      <Filter>Header Files\2dLegacy</Filter>
+    </ClInclude>
+    <ClInclude Include="Square.h">
+      <Filter>Header Files\2dLegacy</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangle_T.h">
+      <Filter>Header Files\2dLegacy</Filter>
+    </ClInclude>
+    <ClInclude Include="Control3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Events3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
