@@ -22,11 +22,13 @@
     <ClInclude Include="bomb.h" />
     <ClInclude Include="Bombtext.h" />
     <ClInclude Include="bullet.h" />
+    <ClInclude Include="bullet3D.h" />
     <ClInclude Include="bulletController.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Circle3D.h" />
     <ClInclude Include="Control3D.h" />
+    <ClInclude Include="Cube.h" />
     <ClInclude Include="Events.h" />
     <ClInclude Include="Events3D.h" />
     <ClInclude Include="GameObject.h" />
@@ -38,18 +40,25 @@
     <ClInclude Include="ModelLoaderClass.h" />
     <ClInclude Include="SDL_Start.h" />
     <ClInclude Include="ShaderClass.h" />
+    <ClInclude Include="SkyBox.h" />
     <ClInclude Include="spawner.h" />
     <ClInclude Include="Spawner3D.h" />
     <ClInclude Include="Square.h" />
     <ClInclude Include="TextureClass.h" />
+    <ClInclude Include="TextureClassCube.h" />
     <ClInclude Include="Textures.h" />
     <ClInclude Include="TODO.h" />
+    <ClInclude Include="Triangle3D.h" />
     <ClInclude Include="Triangle_T.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\Assets\Shaders\AD_MultiLight_Test.frag" />
+    <None Include="..\..\Assets\Shaders\AD_MultiLight_Test.vert" />
+    <None Include="..\..\Assets\Shaders\player.frag" />
+    <None Include="..\..\Assets\Shaders\player.vert" />
     <None Include="..\..\Assets\Shaders\shader.frag" />
     <None Include="..\..\Assets\Shaders\shader.vert" />
     <None Include="..\..\Assets\Shaders\shader2.frag" />
@@ -58,6 +67,12 @@
     <None Include="..\..\Assets\Shaders\shaderColour.vert" />
     <None Include="..\..\Assets\Shaders\shader_Projection_basicLight.frag" />
     <None Include="..\..\Assets\Shaders\shader_Projection_basicLight.vert" />
+    <None Include="..\..\Assets\Shaders\shader_projection_lighting_A.frag" />
+    <None Include="..\..\Assets\Shaders\shader_projection_lighting_A.vert" />
+    <None Include="..\..\Assets\Shaders\shader_projection_lighting_AD - Copy.frag" />
+    <None Include="..\..\Assets\Shaders\shader_projection_lighting_AD - Copy.vert" />
+    <None Include="..\..\Assets\Shaders\shader_projection_lighting_AD.frag" />
+    <None Include="..\..\Assets\Shaders\shader_projection_lighting_AD.vert" />
     <None Include="..\..\Assets\Shaders\shader_Text.frag" />
     <None Include="..\..\Assets\Shaders\shader_Text.vert" />
     <None Include="..\..\Assets\Shaders\shader_time.frag" />
@@ -68,6 +83,8 @@
     <None Include="..\..\Assets\Shaders\shader_vColour_Texture.vert" />
     <None Include="..\..\Assets\Shaders\shader_vColour_Transform.frag" />
     <None Include="..\..\Assets\Shaders\shader_vColour_Transform.vert" />
+    <None Include="..\..\Assets\Shaders\skybox.frag" />
+    <None Include="..\..\Assets\Shaders\skybox.vert" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

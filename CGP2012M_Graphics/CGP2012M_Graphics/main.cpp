@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 
 
 	//Create our triangle
-	Triangle_T tri;
+	Triangle3D tri(0.1f, "..//..//Assets//Models//test.obj");
 
 	//create a square
 	Square sq;
@@ -40,6 +40,26 @@ int main(int argc, char *argv[])
 
 	Control3D control(&tri, &spn);
 
+	Cube wallLeft("..//..//Assets//Models//blenderCube.obj");
+	wallLeft.setScale(0.1, 1.4, 0.1);
+	wallLeft.setTranslate(-0.5, 1, 0);
+	Cube wallRight("..//..//Assets//Models//blenderCube.obj");
+	wallRight.setScale(0.1, 1.4, 0.1);
+	wallRight.setTranslate(3.5, 1, 0);
+	Cube wallDown("..//..//Assets//Models//blenderCube.obj");
+	wallDown.setScale(2.1, 0.1, 0.1);
+	wallDown.setTranslate(1.5, -0.5, 0);
+	Cube wallUp("..//..//Assets//Models//blenderCube.obj");
+	wallUp.setScale(2.1, 0.1, 0.1);
+	wallUp.setTranslate(1.5, 2.5, 0);
+
+	SkyBox sky("..//..//Assets//Models//blenderCube.obj");
+	sky.setScale(200,200,200);
+	
+	//Model testMod;
+	//ModelImport importer;
+	//importer.LoadOBJ2("..//..//Assets//Models//blenderSphere.obj", testMod.vertices, testMod.texCoords, testMod.normals, testMod.indices);
+	//testMod.setBuffers();
 	while (true)
 	{
 		//Clear the screen with a single colour
@@ -57,22 +77,35 @@ int main(int argc, char *argv[])
 
 
 		//sq.setCurrentTime(currentTime);
+		sky.render();
 		sq.render();
 
+
+		lives.render();
+		wallLeft.render();
+		wallRight.render();
+		wallDown.render();
+		wallUp.render();
 
 		spn.update();
 
 
 		tri.render(lives);
 		control.redner();
+
+
+
+
+
 		bomb.render();
 		bText.render();
-	lives.render();
+
 		//RenderPresent() -- swap/flip buffers
 		SDL_GL_SwapWindow(sdl.win);
 
 
 		//-------------
+
 
 
 		int temp = ev.HandleEvents(sdl, spn, control, bomb);

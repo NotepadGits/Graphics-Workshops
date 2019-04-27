@@ -31,7 +31,7 @@ public:
 		Circle3D* circle = new Circle3D(0.2f,"..//..//Assets//Models//blenderSphere.obj");
 
 		float r = (rand() / ((float)RAND_MAX));
-		r = 0.7 + r * (1.0 - 0.7);
+		r = 0.1 + r * (0.3 - 0.1);
 
 		circle->scale = glm::scale(circle->scale, glm::vec3(r));
 
@@ -52,12 +52,27 @@ public:
 			Circle3D* circle = new Circle3D(radius, "..//..//Assets//Models//blenderSphere.obj");
 
 			float r = (rand() / ((float)RAND_MAX));
-			r = 0.7 + r * (1.0 - 0.7);
+			r = 0.1 + r * (0.3 - 0.1);
+			radius = r;
 
 			circle->scale = glm::scale(circle->scale, glm::vec3(r));
 
 			bub.push_back(circle);
 		}
+
+	}
+	void spawnnew()
+	{
+
+			Circle3D* circle = new Circle3D(radius, "..//..//Assets//Models//blenderSphere.obj");
+
+			float r = (rand() / ((float)RAND_MAX));
+			r = 0.1 + r * (0.3 - 0.1);
+			radius = r;
+
+			circle->scale = glm::scale(circle->scale, glm::vec3(r));
+
+			bub.push_back(circle);
 
 	}
 

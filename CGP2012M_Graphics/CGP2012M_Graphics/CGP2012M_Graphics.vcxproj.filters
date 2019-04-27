@@ -102,6 +102,21 @@
     <ClInclude Include="Light.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Triangle3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bullet3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cube.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SkyBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureClassCube.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -109,24 +124,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\Assets\Shaders\shader_vColour_Projection.frag">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\..\Assets\Shaders\shader_vColour_Projection.vert">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\..\Assets\Shaders\shader.frag">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\..\Assets\Shaders\shader.vert">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\..\Assets\Shaders\shader2.frag">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\..\Assets\Shaders\shader2.vert">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="..\..\Assets\Shaders\shader_Projection_basicLight.frag">
       <Filter>Resource Files\Unused</Filter>
     </None>
@@ -161,6 +158,60 @@
       <Filter>Resource Files\Unused</Filter>
     </None>
     <None Include="..\..\Assets\Shaders\shaderColour.vert">
+      <Filter>Resource Files\Unused</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\AD_MultiLight_Test.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\AD_MultiLight_Test.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\player.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\player.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\skybox.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\skybox.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\shader_projection_lighting_AD.vert">
+      <Filter>Resource Files\Unused</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\shader_projection_lighting_A.frag">
+      <Filter>Resource Files\Unused</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\shader_projection_lighting_A.vert">
+      <Filter>Resource Files\Unused</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\shader_projection_lighting_AD - Copy.frag">
+      <Filter>Resource Files\Unused</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\shader_projection_lighting_AD - Copy.vert">
+      <Filter>Resource Files\Unused</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\shader_projection_lighting_AD.frag">
+      <Filter>Resource Files\Unused</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\shader.frag">
+      <Filter>Resource Files\Unused</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\shader.vert">
+      <Filter>Resource Files\Unused</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\shader_vColour_Projection.frag">
+      <Filter>Resource Files\Unused</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\shader_vColour_Projection.vert">
+      <Filter>Resource Files\Unused</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\shader2.frag">
+      <Filter>Resource Files\Unused</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\shader2.vert">
       <Filter>Resource Files\Unused</Filter>
     </None>
   </ItemGroup>

@@ -65,7 +65,7 @@ public:
 		createShaderProgram();
 
 		//Load textures for rendering
-		tex.load("..//..//Assets//Textures//plaid.jpg");
+		tex.load("..//..//Assets//Textures//background.png");
 
 		//mount buffers with vertex data
 		setBuffers();

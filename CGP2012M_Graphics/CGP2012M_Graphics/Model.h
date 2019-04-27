@@ -34,6 +34,8 @@ public:
 	{
 		ModelImport importer;
 		importer.LoadOBJ2(file, vertices, texCoords, normals, indices);
+
+
 	}
 
 	//constructor

@@ -10,20 +10,20 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
-#include "Triangle_T.h"
-#include "bullet.h"
+#include "Triangle3D.h"
+#include "bullet3D.h"
 #include "spawner3D.h"
 
 class Control3D
 {
 public:
 
-	Triangle_T* plr;
-	std::vector<bullet*> bul;
+	Triangle3D* plr;
+	std::vector<bullet3D*> bul;
 	Spawner3D* spwn;
 
 
-	Control3D(Triangle_T* plr, Spawner3D* spwn)
+	Control3D(Triangle3D* plr, Spawner3D* spwn)
 	{
 		this->spwn = spwn;
 		this->plr = plr;
@@ -33,7 +33,7 @@ public:
 	{
 		if (bul.size() < 1)
 		{
-			bul.push_back(new bullet(plr));
+			bul.push_back(new bullet3D(plr));
 		}
 	}
 

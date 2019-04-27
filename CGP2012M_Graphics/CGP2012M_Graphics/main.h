@@ -49,3 +49,8 @@
 #include "Spawner3D.h"
 #include "Control3D.h"
 #include "Events3D.h"
+#include "model.h"
+#include "ModelLoaderClass.h"
+#include "Triangle3D.h"
+#include "Cube.h"
+#include "SkyBox.h"

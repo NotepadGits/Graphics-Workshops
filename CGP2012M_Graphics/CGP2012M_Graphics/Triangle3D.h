@@ -13,7 +13,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
-class Circle3D
+class Triangle3D
 {
 public:
 	//shaders
@@ -33,10 +33,10 @@ public:
 	//set up texture
 	Texture tex;
 
-
+	float angle = 0;
 	//MVP matrix
 	glm::mat4 translate = glm::mat4(1.0);
-	glm::mat4 scale = glm::mat4(1.0);
+	glm::mat4 scale = glm::mat4(1.0f);
 	glm::mat4 rotation = glm::mat4(1.0);
 
 	float xPos;
@@ -58,7 +58,7 @@ public:
 
 
 
-	Circle3D(float radius ,char* file)
+	Triangle3D(float radius, char* file)
 	{
 		this->radius = radius;
 
@@ -70,26 +70,11 @@ public:
 		loadTex();
 		setBuffers();
 
-		timeTemp = SDL_GetTicks();
-
-		///Spawn Direction velocity
-		srand(time(0));
-		float rVal = rand() % 10;
-		xSpeed = rVal /= 1000;
-		rVal = rand() % 1;
-		if (rVal == 0) xSpeed = -xSpeed;
-		rVal = rand() % 10;
-		ySpeed = rVal /= 1000;
-		rVal = rand() % 1;
-		if (rVal == 0) ySpeed = -ySpeed;
-
-
-
 		translate = glm::translate(translate, glm::vec3(0.5, 0.5, 0));
 
 		position = glm::vec3(translate[3]);
 
-
+		scale = glm::scale(scale, glm::vec3(0.2f));
 	};
 	glm::vec3 lightColour{ 1.0f, 1.0f, 0.98f };
 	glm::vec3 lightPosition{ 0.5f, 0.5f, 0.0f };
@@ -128,8 +113,8 @@ public:
 
 		///vSh.shaderFileName("..//..//Assets//Shaders//shader_projection_lighting_AD.vert");
 		///fSh.shaderFileName("..//..//Assets//Shaders//shader_projection_lighting_AD.frag");
-		vSh.shaderFileName("..//..//Assets//Shaders//AD_MultiLight_Test.vert");
-		fSh.shaderFileName("..//..//Assets//Shaders//AD_MultiLight_Test.frag");
+		vSh.shaderFileName("..//..//Assets//Shaders//player.vert");
+		fSh.shaderFileName("..//..//Assets//Shaders//player.frag");
 
 		vSh.getShader(1);
 		fSh.getShader(2);
@@ -147,7 +132,7 @@ public:
 	{
 
 		//load the texture file
-		tex.load("..//..//Assets//Textures//sphereBubble.png");
+		tex.load("..//..//Assets//Textures//carbon-fibre-seamless-texture.jpg");
 		tex.setBuffers();
 	};
 
@@ -206,9 +191,6 @@ public:
 	void update()
 	{
 
-
-
-		position = glm::vec3(translate[3]);
 		//glm::vec3 scalar = glm::vec3(scale[3]);
 
 		float scaleValue = scale[0].x;
@@ -216,23 +198,6 @@ public:
 		float r = (radius / 2) * (scaleValue / 2);
 
 
-		if (position.x > 3.8 - r)
-			xSpeed = -xSpeed;
-
-		if (position.x < 0.2 + r)
-			xSpeed = -xSpeed;
-
-		if (position.y > 2.8 - r)
-			ySpeed = -ySpeed;
-
-		if (position.y < 0.2 + r)
-			ySpeed = -ySpeed;
-
-
-		velocity = glm::vec3(xSpeed, ySpeed, 0);
-
-
-		translate = glm::translate(translate, velocity);
 
 
 
@@ -242,8 +207,31 @@ public:
 		//std::cout << position.x << std::endl;
 	}
 
-	void render()
+	void render(Lives &lives)
 	{
+
+		glm::vec3 position = glm::vec3(translate[3]);
+
+		if (position.x > 3.8)
+		{
+			lives.LivesRemaining -= 1;
+			translate = glm::translate(translate, glm::vec3(-1.5, 0, 0));
+		}
+		if (position.x < 0.2)
+		{
+			lives.LivesRemaining -= 1;
+			translate = glm::translate(translate, glm::vec3(1.5, 0, 0));
+		}
+		if (position.y > 2.8)
+		{
+			lives.LivesRemaining -= 1;
+			translate = glm::translate(translate, glm::vec3(0, -1.5, 0));
+		}
+		if (position.y < 0.2)
+		{
+			lives.LivesRemaining -= 1;
+			translate = glm::translate(translate, glm::vec3(0, 1.5, 0));
+		}
 		//draw the circle 
 		glBindVertexArray(VAO);
 

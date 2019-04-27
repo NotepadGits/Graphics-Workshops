@@ -13,7 +13,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
-class Circle3D
+class SkyBox
 {
 public:
 	//shaders
@@ -58,10 +58,8 @@ public:
 
 
 
-	Circle3D(float radius ,char* file)
+	SkyBox(char* file)
 	{
-		this->radius = radius;
-
 		createShaders();
 
 		ModelImport importer;
@@ -72,27 +70,17 @@ public:
 
 		timeTemp = SDL_GetTicks();
 
-		///Spawn Direction velocity
-		srand(time(0));
-		float rVal = rand() % 10;
-		xSpeed = rVal /= 1000;
-		rVal = rand() % 1;
-		if (rVal == 0) xSpeed = -xSpeed;
-		rVal = rand() % 10;
-		ySpeed = rVal /= 1000;
-		rVal = rand() % 1;
-		if (rVal == 0) ySpeed = -ySpeed;
-
-
-
 		translate = glm::translate(translate, glm::vec3(0.5, 0.5, 0));
 
 		position = glm::vec3(translate[3]);
 
 
 	};
+
+
+
 	glm::vec3 lightColour{ 1.0f, 1.0f, 0.98f };
-	glm::vec3 lightPosition{ 0.5f, 0.5f, 0.0f };
+	glm::vec3 lightPosition{ 0.0f, 0.0f, 0.0f };
 	glm::vec3 lightPosition2{ 3.5f, 3.0f, 0.0f };
 	GLuint elapsedTime;
 	glm::mat4 normalMatrix;
@@ -123,13 +111,15 @@ public:
 
 
 
+
+
 	void createShaders() {
 		//shaders
 
 		///vSh.shaderFileName("..//..//Assets//Shaders//shader_projection_lighting_AD.vert");
 		///fSh.shaderFileName("..//..//Assets//Shaders//shader_projection_lighting_AD.frag");
-		vSh.shaderFileName("..//..//Assets//Shaders//AD_MultiLight_Test.vert");
-		fSh.shaderFileName("..//..//Assets//Shaders//AD_MultiLight_Test.frag");
+		vSh.shaderFileName("..//..//Assets//Shaders//skybox.vert");
+		fSh.shaderFileName("..//..//Assets//Shaders//skybox.frag");
 
 		vSh.getShader(1);
 		fSh.getShader(2);
@@ -147,7 +137,7 @@ public:
 	{
 
 		//load the texture file
-		tex.load("..//..//Assets//Textures//sphereBubble.png");
+		tex.load("..//..//Assets//Textures//skybox2.png");
 		tex.setBuffers();
 	};
 
@@ -206,41 +196,16 @@ public:
 	void update()
 	{
 
+	};
 
-
-		position = glm::vec3(translate[3]);
-		//glm::vec3 scalar = glm::vec3(scale[3]);
-
-		float scaleValue = scale[0].x;
-
-		float r = (radius / 2) * (scaleValue / 2);
-
-
-		if (position.x > 3.8 - r)
-			xSpeed = -xSpeed;
-
-		if (position.x < 0.2 + r)
-			xSpeed = -xSpeed;
-
-		if (position.y > 2.8 - r)
-			ySpeed = -ySpeed;
-
-		if (position.y < 0.2 + r)
-			ySpeed = -ySpeed;
-
-
-		velocity = glm::vec3(xSpeed, ySpeed, 0);
-
-
-		translate = glm::translate(translate, velocity);
-
-
-
-
-
-
-		//std::cout << position.x << std::endl;
-	}
+	void setScale(float x, float y, float z)
+	{
+		scale = glm::scale(scale, glm::vec3(x, y, z));
+	};
+	void setTranslate(float x, float y, float z)
+	{
+		translate = glm::translate(translate, glm::vec3(x, y, z));
+	};
 
 	void render()
 	{

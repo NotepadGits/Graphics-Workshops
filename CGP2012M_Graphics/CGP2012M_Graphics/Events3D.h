@@ -1,7 +1,7 @@
 #pragma once
 #include "SDL.h"
 #include "SDL_Start.h"
-#include "Triangle_T.h"
+#include "Triangle3D.h"
 #include <GL/glew.h>
 #include "spawner.h"
 #include "bulletController.h"
@@ -11,13 +11,13 @@ class Events3D
 public:
 	SDL_Event event;
 
-	Triangle_T* player;
+	Triangle3D* player;
 	Events3D()
 	{
 
 	}
 	;
-	void playerPassthrough(Triangle_T* plr)
+	void playerPassthrough(Triangle3D* plr)
 	{
 		player = plr;
 	}
@@ -78,7 +78,7 @@ public:
 					control.shoot();
 					break;
 				case SDLK_9:
-					spn.bub.push_back(new Circle3D(0.2f, "..//..//Assets//Models//blenderSphere.obj"));
+					spn.spawnnew();
 					break;
 				case SDLK_UP:
 					Camera::position.y += 1.0f;
@@ -91,6 +91,15 @@ public:
 					break;
 				case SDLK_RIGHT:
 					Camera::position.x += 1.0f;
+					break;
+				case SDLK_1:
+					Camera::lightingType = 0;
+					break;
+				case SDLK_2:
+					Camera::lightingType = 1;
+					break;
+				case SDLK_3:
+					Camera::lightingType = 2;
 					break;
 
 				}

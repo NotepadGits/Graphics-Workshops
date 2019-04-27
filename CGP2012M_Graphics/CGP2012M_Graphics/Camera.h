@@ -15,16 +15,18 @@ public:
 	static glm::vec3 Target;
 	static glm::vec3 cameraUp;
 
+	static int lightingType;
+
 	static void INIT(float w, float h)
 	{
 		viewMatrix = glm::lookAt(position, Target, cameraUp);
 		//projectionMatrix = glm::ortho(0.0f, 4.0f, 0.0f, 3.0f, -1.0f, 100.0f);
-		projectionMatrix = glm::perspective(glm::radians(45.0f), (float)w / (float)h, 0.1f, 100.0f);
+		projectionMatrix = glm::perspective(glm::radians(45.0f), (float)w / (float)h, 0.1f, 100000.0f);
 	};
 
 	static void resize(float w, float h)
 	{
-		projectionMatrix = glm::perspective(glm::radians(45.0f), (float)w / (float)h, 0.1f, 100.0f);
+		projectionMatrix = glm::perspective(glm::radians(45.0f), (float)w / (float)h, 0.1f, 100000.0f);
 	}
 
 	static void update()
@@ -57,3 +59,5 @@ glm::vec3 Camera::Target = glm::vec3(2, 1.5, 0);
 glm::vec3 Camera::position = glm::vec3(2, 1.5, 3.5);
 //--
 glm::vec3 Camera::cameraUp = glm::vec3(0, 1, 0);
+
+int Camera::lightingType = 0;
