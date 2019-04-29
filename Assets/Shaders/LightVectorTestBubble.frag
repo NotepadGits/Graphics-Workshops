@@ -71,7 +71,7 @@ void main()
 
 	vec4 col = vec4(r, g, b, 1.0);
 
-	vec4 textureColour = texture(aTex, textureCoordinate) * col;
+	vec4 textureColour = texture(aTex, textureCoordinate +uTime*0.00005) * col;
 
 
 	//==========================
