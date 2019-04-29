@@ -66,12 +66,6 @@ public:
 
 				if (dist < spwn->bub.at(i)->radius)
 				{
-
-					//std::cout << bul[I]->position.x << std::endl;
-
-					//std::cout << "aaaaaaaaaaa" << std::endl;
-					//bul[I]->position.x = 100;
-
 					bul.erase(bul.begin() + I);
 					spwn->bub.erase(spwn->bub.begin() + i);
 					return;

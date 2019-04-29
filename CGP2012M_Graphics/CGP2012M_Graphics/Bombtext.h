@@ -59,7 +59,7 @@ public:
 	*
 	*/
 	BombText() {
-		translate = glm::translate(translate, glm::vec3(3.5, 2.8, 0));
+		translate = glm::translate(translate, glm::vec3(3.5, 2.8, 0.1));
 		scale = glm::scale(scale, glm::vec3(2, 2, 0));
 
 		//load the sharders and compile

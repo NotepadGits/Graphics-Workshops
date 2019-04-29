@@ -214,5 +214,20 @@
     <None Include="..\..\Assets\Shaders\shader2.vert">
       <Filter>Resource Files\Unused</Filter>
     </None>
+    <None Include="..\..\Assets\Shaders\LightVectorTest.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\LightVectorTest.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\BACKGROUND.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\LightVectorTestBubble.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\LightVectorTestBubble.vert">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

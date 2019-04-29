@@ -15,6 +15,7 @@ uniform mat4 uModel;
 uniform mat4 uView;
 uniform mat4 uProjection;
 
+uniform float uTime;
 
 
 
@@ -24,8 +25,11 @@ void main()
 {
 	//int LT = LightingType;
 
+	vec3 offset;
+	offset.x = sin(Position.y * 3 + uTime * 0.005)*0.05;
 
-	gl_Position = uProjection * uView * uModel * vec4(Position, 1.0); 					
+
+	gl_Position = uProjection * uView * uModel * vec4(Position + offset*1.3, 1.0); 					
 	textureCoordinate = vec2(texCoord.x, 1 - texCoord.y);
 	
 	//get the fragment position in world coordinates as this is where the lighting will be calculated

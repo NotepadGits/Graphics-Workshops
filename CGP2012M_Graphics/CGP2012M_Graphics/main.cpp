@@ -60,8 +60,17 @@ int main(int argc, char *argv[])
 	//ModelImport importer;
 	//importer.LoadOBJ2("..//..//Assets//Models//blenderSphere.obj", testMod.vertices, testMod.texCoords, testMod.normals, testMod.indices);
 	//testMod.setBuffers();
+	Light test;
+	Light::lightCol1 = { 1.0f,1.0f,1.0f };
+	Light::lightCol2 = { 1.0f,1.0f,1.0f };
+	Light::lightCol3 = { 1.0f,1.0f,0.0f };
+	Light::lightPosition1 = { 0.25f,0.25f,0.2f };
+	Light::lightPosition2 = { 3.9f, 3.0f, 0.0f };
+	Light::lightPosition3 = { 1.0f,1.0f,1.0f };
+
 	while (true)
 	{
+
 		//Clear the screen with a single colour
 		glClearColor(1.0f, 0.8f, 1.0f, 1);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -72,6 +81,8 @@ int main(int argc, char *argv[])
 		spn.spawn();
 		control.update();
 		Camera::update();
+
+		Light::lightPosition3 = glm::vec3(tri.translate[3]) + glm::vec3{ 0.08,0,0.2 };
 		//Actually draw the triangle on the screen
 
 
@@ -81,7 +92,10 @@ int main(int argc, char *argv[])
 		sq.render();
 
 
-		lives.render();
+
+
+
+
 		wallLeft.render();
 		wallRight.render();
 		wallDown.render();
@@ -93,12 +107,13 @@ int main(int argc, char *argv[])
 		tri.render(lives);
 		control.redner();
 
-
-
-
-
+		lives.render();
 		bomb.render();
 		bText.render();
+
+
+
+
 
 		//RenderPresent() -- swap/flip buffers
 		SDL_GL_SwapWindow(sdl.win);

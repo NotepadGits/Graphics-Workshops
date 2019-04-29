@@ -101,6 +101,9 @@ public:
 				case SDLK_3:
 					Camera::lightingType = 2;
 					break;
+				case SDLK_4:
+					Camera::lightingType = 3;
+					break;
 
 				}
 

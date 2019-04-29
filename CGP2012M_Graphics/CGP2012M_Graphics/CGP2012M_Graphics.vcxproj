@@ -57,6 +57,11 @@
   <ItemGroup>
     <None Include="..\..\Assets\Shaders\AD_MultiLight_Test.frag" />
     <None Include="..\..\Assets\Shaders\AD_MultiLight_Test.vert" />
+    <None Include="..\..\Assets\Shaders\BACKGROUND.vert" />
+    <None Include="..\..\Assets\Shaders\LightVectorTest.frag" />
+    <None Include="..\..\Assets\Shaders\LightVectorTest.vert" />
+    <None Include="..\..\Assets\Shaders\LightVectorTestBubble.frag" />
+    <None Include="..\..\Assets\Shaders\LightVectorTestBubble.vert" />
     <None Include="..\..\Assets\Shaders\player.frag" />
     <None Include="..\..\Assets\Shaders\player.vert" />
     <None Include="..\..\Assets\Shaders\shader.frag" />

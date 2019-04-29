@@ -54,3 +54,4 @@
 #include "Triangle3D.h"
 #include "Cube.h"
 #include "SkyBox.h"
+#include "Light.h"

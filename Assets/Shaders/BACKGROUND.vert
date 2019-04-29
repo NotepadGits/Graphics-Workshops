@@ -33,10 +33,10 @@ void main()
 	
 	
 	//pass the normals to the fragment shader unmodified
-	//normals = normal;
+	normals = normal;
 	
 	//pass normals to fragment shader after modifying for scaling
 	//calculate a 'normal matrix' and multiply by the unmodified normal
-	normals = mat3(uNormalMatrix) * normal;
+	//normals = mat3(uNormalMatrix) * normal;
 
 }

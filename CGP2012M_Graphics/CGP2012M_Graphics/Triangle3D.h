@@ -13,6 +13,8 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+
+#include "Light.h"
 class Triangle3D
 {
 public:
@@ -76,19 +78,22 @@ public:
 
 		scale = glm::scale(scale, glm::vec3(0.2f));
 	};
-	glm::vec3 lightColour{ 1.0f, 1.0f, 0.98f };
-	glm::vec3 lightPosition{ 0.5f, 0.5f, 0.0f };
-	glm::vec3 lightPosition2{ 3.5f, 3.0f, 0.0f };
 	GLuint elapsedTime;
 	glm::mat4 normalMatrix;
+
 
 	void passMatricesToShader()
 	{
 		elapsedTime = 100;
 		glUseProgram(shaderProgram);
-		glUniform3fv(glGetUniformLocation(shaderProgram, "lightCol"), 1, glm::value_ptr(lightColour));
-		glUniform3fv(glGetUniformLocation(shaderProgram, "lightPos"), 1, glm::value_ptr(lightPosition));
-		glUniform3fv(glGetUniformLocation(shaderProgram, "lightPos2"), 1, glm::value_ptr(lightPosition2));
+		glUniform3fv(glGetUniformLocation(shaderProgram, "lightCol1"), 1, glm::value_ptr(Light::lightCol1));
+		glUniform3fv(glGetUniformLocation(shaderProgram, "lightCol2"), 1, glm::value_ptr(Light::lightCol2));
+		glUniform3fv(glGetUniformLocation(shaderProgram, "lightCol3"), 1, glm::value_ptr(Light::lightCol3));
+		glUniform3fv(glGetUniformLocation(shaderProgram, "lightPos1"), 1, glm::value_ptr(Light::lightPosition1));
+		glUniform3fv(glGetUniformLocation(shaderProgram, "lightPos2"), 1, glm::value_ptr(Light::lightPosition2));
+		glUniform3fv(glGetUniformLocation(shaderProgram, "lightPos3"), 1, glm::value_ptr(Light::lightPosition3));
+		glUniform3fv(glGetUniformLocation(shaderProgram, "camPos"), 1, glm::value_ptr(Camera::position));
+
 		glUniform1i(glGetUniformLocation(shaderProgram, "LightingType"), Camera::lightingType);
 		glUniform1f(glGetUniformLocation(shaderProgram, "uTime"), SDL_GetTicks() + timeTemp);
 		glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "uModel"), 1, GL_FALSE, glm::value_ptr(translate*rotation*scale));
@@ -113,8 +118,8 @@ public:
 
 		///vSh.shaderFileName("..//..//Assets//Shaders//shader_projection_lighting_AD.vert");
 		///fSh.shaderFileName("..//..//Assets//Shaders//shader_projection_lighting_AD.frag");
-		vSh.shaderFileName("..//..//Assets//Shaders//player.vert");
-		fSh.shaderFileName("..//..//Assets//Shaders//player.frag");
+		vSh.shaderFileName("..//..//Assets//Shaders//LightVectorTest.vert");
+		fSh.shaderFileName("..//..//Assets//Shaders//LightVectorTest.frag");
 
 		vSh.getShader(1);
 		fSh.getShader(2);

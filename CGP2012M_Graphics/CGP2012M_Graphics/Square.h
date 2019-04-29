@@ -5,6 +5,7 @@
 #include "ShaderClass.h"
 #include "TextureClass.h"
 #include "Camera.h"
+#include "Light.h"
 
 class Square
 {
@@ -71,22 +72,26 @@ public:
 		setBuffers();
 	};
 
+
 	void passMatricesToShader()
 	{
+
 		glUseProgram(shader);
-		//set projection matrix uniform and other triangle values
-		int projectionLocation = glGetUniformLocation(shader, "uProjection");
-		glUniformMatrix4fv(projectionLocation, 1, GL_FALSE, glm::value_ptr(Camera::projectionMatrix));
+		glUniform3fv(glGetUniformLocation(shader, "lightCol1"), 1, glm::value_ptr(Light::lightCol1));
+		glUniform3fv(glGetUniformLocation(shader, "lightCol2"), 1, glm::value_ptr(Light::lightCol2));
+		glUniform3fv(glGetUniformLocation(shader, "lightCol3"), 1, glm::value_ptr(Light::lightCol3));
+		glUniform3fv(glGetUniformLocation(shader, "lightPos1"), 1, glm::value_ptr(Light::lightPosition1));
+		glUniform3fv(glGetUniformLocation(shader, "lightPos2"), 1, glm::value_ptr(Light::lightPosition2));
+		glUniform3fv(glGetUniformLocation(shader, "lightPos3"), 1, glm::value_ptr(Light::lightPosition3));
 
-		glUniform1f(glGetUniformLocation(shader, "uTime"), SDL_GetTicks());
+
+		glUniform1i(glGetUniformLocation(shader, "LightingType"), Camera::lightingType);
+		glUniformMatrix4fv(glGetUniformLocation(shader, "uModel"), 1, GL_FALSE, glm::value_ptr(translate*rotation*scale));
+		glUniformMatrix4fv(glGetUniformLocation(shader, "uView"), 1, GL_FALSE, glm::value_ptr(Camera::viewMatrix));
+		glUniformMatrix4fv(glGetUniformLocation(shader, "uProjection"), 1, GL_FALSE, glm::value_ptr(Camera::projectionMatrix));
 
 
-
-		int modelLocation = glGetUniformLocation(shader, "uModel");
-		glUniformMatrix4fv(modelLocation, 1, GL_FALSE, glm::value_ptr(translate*rotation*scale));
-
-		int viewLocation = glGetUniformLocation(shader, "uView");
-		glUniformMatrix4fv(viewLocation, 1, GL_FALSE, glm::value_ptr(Camera::viewMatrix));
+		glBindTexture(GL_TEXTURE_2D, tex.texture);
 	}
 
 	glm::mat4 getModelMatrix()
@@ -97,8 +102,8 @@ public:
 	void createShaderProgram()
 	{
 		//mount vertex and fragment shaders
-		vSh1.shaderFileName("..//..//Assets//Shaders//shader2.vert");
-		fSh1.shaderFileName("..//..//Assets//Shaders//shader2.frag");
+		vSh1.shaderFileName("..//..//Assets//Shaders//BACKGROUND.vert");
+		fSh1.shaderFileName("..//..//Assets//Shaders//LightVectorTest.frag");
 
 		//give the shaders an ID for compilation
 		vSh1.getShader(1);
